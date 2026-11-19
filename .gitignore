@@ -89,11 +89,14 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# --- Blender Temporary / Backup Files ---
+# --- Blender Temporary / Backup & Bulk Intermediate Renders/Textures ---
+# (Unity holds imported PBR textures; web/public/images/ holds optimized WebP renders)
 *.blend1
 *.blend2
 *.blend@
 *.tx
+blender-assets/textures/
+blender-assets/renders/
 
 # --- Python / Audio & Asset Pipelines ---
 **/__pycache__/
