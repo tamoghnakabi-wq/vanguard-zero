@@ -473,17 +473,18 @@ namespace VanguardZero.Networking
 
 ---
 
-## 8. Planned Scripts under `Assets/Scripts/Networking/`
+## 8. Implemented Scripts under `Assets/Scripts/Networking/`
 
 | File | Responsibility |
 |---|---|
-| `NetworkContracts.cs` | Namespace `VanguardZero.Networking` enums, DTOs, weapon ballistics specs, interfaces, and `VanguardNetServices` locator (zero NGO/MPS dependencies). |
-| `VanguardNetworkBootstrap.cs` | Persistent `DontDestroyOnLoad` singleton hosting `NetworkManager` wiring, `Application.runInBackground = true` guard, scene-transition hooks, and Editor direct-scene auto-solo fallback. |
-| `VanguardSessionManager.cs` | UGS Initialization, Anonymous Auth + Callsign persistence, `ISession` Host/Public/Private/JoinByCode/Browse/QuickPlay via `WithRelayNetwork()`, LAN Direct fallback, Offline Solo Skirmish host, and graceful error/disconnect cleanup. |
-| `LagCompensatedHitValidator.cs` | Server/Host 60 Hz ring-buffer hitbox history (Head sphere + Body capsule), RTT-bounded rewind (<= 250 ms), static world occlusion raycast, deterministic shotgun pellet spread, armor/health damage resolution. |
-| `NetworkMatchManager.cs` | Authoritative `NetworkBehaviour` owning `MatchPhase`, scores, round timer (`PhaseEndServerTime`), slot/team assignment, scoreboard `NetworkList`, kill feed RPC + recent ring, respawn queue, and dynamic AI bot backfill spawning/despawning. |
-| `NetworkPlayerBridge.cs` | `NetworkBehaviour` implementing `IPlayerCombatAuthority` & `ILagCompensatedTarget`: 30 Hz quantized pose sync + remote interpolation/extrapolation, authoritative vitals/spawn teleport, weapon fire RPCs, hit confirm & damage feedback RPCs. |
-| `NetworkBotSync.cs` | `NetworkBehaviour` implementing `IBotNetworkBridge` & `ILagCompensatedTarget`: server-only AI authority flag, 20 Hz pose sync, client interpolation, authoritative vitals/respawn, unified weapon fire validation & tracer broadcast. |
+| `NetworkContracts.cs` | Namespace `VanguardZero.Networking` enums, DTOs, `WeaponBallisticsRegistry`, interfaces, and `VanguardNetServices` locator (zero NGO/MPS dependencies). |
+| `NetworkWireTypes.cs` | Unmanaged `INetworkSerializable` / `IEquatable<T>` structs (`NetPlayerPose`, `NetSpawnCommand`, `NetVitalsState` with `DamageNonce`, `NetPlayerIdentity`, `NetMatchState`, `NetScoreboardEntry`, `NetKillFeedPayload`, shot/hit payloads) and UTF-8-safe `NetWireHelpers.ToFixed32/64` (`CopyFromTruncated`). |
+| `VanguardNetworkBootstrap.cs` | Persistent `DontDestroyOnLoad` singleton hosting `NetworkManager` wiring, `Application.runInBackground = true` guard, scene-transition hooks, graceful host-disconnect recovery, and Editor direct-scene auto-solo fallback. |
+| `VanguardSessionManager.cs` | Coordinates with `PlayerAuthentication.SignedIn`, persists player callsign, implements `ISession` Host Public/Private + Join Code, Lobby Browser (`QuerySessionsAsync`), Join by Code (with `IP:Port` direct detection), Quick Play (`MatchmakeSessionAsync` + `QuickJoinOptions { CreateSession = true }`) via `WithRelayNetwork()`, LAN Direct fallback, Offline Solo Skirmish ephemeral-port host, and graceful Cloud-unconfigured/disconnect cleanup. |
+| `LagCompensatedHitValidator.cs` | Server/Host 60 Hz 64-sample ring-buffer hitbox history (Head sphere + exact finite-cylinder/endcap Body capsule), RTT-bounded rewind (<= 250 ms), zero-GC `Physics.RaycastNonAlloc` static wall occlusion, deterministic `M890` 8-pellet spread, armor/health damage resolution. |
+| `NetworkMatchManager.cs` | Authoritative `NetworkBehaviour` owning `MatchPhase`, scores, round timer (`PhaseEndServerTime`), slot/team assignment, deferred scene-load spawning (`OnLoadEventCompleted` / `OnSynchronizeComplete` / `OnLoadComplete`), scoreboard `NetworkList`, 1 Hz RTT ping sync, kill feed RPC + late-join sync, respawn queue, dynamic AI bot backfill, and rematch. |
+| `NetworkPlayerBridge.cs` | `NetworkBehaviour` implementing `IPlayerCombatAuthority` & `ILagCompensatedTarget`: 30 Hz owner pose sync + remote interpolation/extrapolation (unextrapolated server hitbox samples), authoritative `DamageNonce` vitals & spawn teleports, server-validated weapon fire RPCs, targeted hit confirm, and `IsLocalShooter`-deduplicated tracer broadcast. |
+| `NetworkBotSync.cs` | `NetworkBehaviour` implementing `IBotNetworkBridge` & `ILagCompensatedTarget`: `ShouldRunBotAI` server-only gate, 20 Hz pose sync, client interpolation, authoritative vitals/respawn, unified lag-compensated bot gunfire & tracer broadcast. |
 
 ---
 
@@ -523,4 +524,43 @@ Before declaring networking complete, `@unity-core` and `@verifier` will run cro
 
 ### Verification Evidence Log
 
-*(To be populated with timestamped command outputs after implementation and MPPM runs.)*
+#### 1. Gate 1 — Architecture & Netcode Code Audit (`@verifier`, 2026-11-20 01:30–01:35)
+- **Initial Audit Findings (#20)**: Flagged capsule math `s` parameter bug, single-hit `Physics.Raycast` wall-occlusion bypass, duplicate damage callback (`NotifyDamageFeedbackRpc` + `NetVitalsState`), default `RpcInvokePermission.Everyone` on server->client RPCs, raw `new FixedString*` constructors, and minor lifecycle/extrapolation edge cases.
+- **Remediation & Re-Audit (#21 -> #23)**: All 6 items fixed (`RayIntersectsCapsule` exact finite-cylinder + endcap spheres, zero-GC `Physics.RaycastNonAlloc` occlusion, `NetVitalsState.DamageNonce` single-event vitals, explicit `RpcInvokePermission.Server` on all 7 server->client RPCs, `NetWireHelpers.ToFixed32/64` using `CopyFromTruncated`, unextrapolated server hitbox poses, session cleanup in LAN Direct, and strict `localOrHostDisconnected` guard).
+- **Result**: **PASS** (`@verifier` #23).
+
+#### 2. Gate 4 — Cross-Process MPPM Attempt #1 (Failed — Root Causes Identified, 2026-11-20 01:50, `#37`)
+- **Processes**: Main Editor (Host) + MPPM Virtual Player Clone (`Player 2`) over live **Unity Cloud Relay** (`JoinCode=TGH6BR`).
+- **Observed Pass**: Distinct UGS Anonymous Auth (`HOST: bhNzYz7KhjurAUqtHl7FXSm3xAxe`, `CLONE: gEIrOxzzumBQvSAQx39F1LRycyTs`), live Relay connect (`HOST Clients=2`, `CLONE IsConnectedClient=True LocalClientId=1 RTT=119ms`), `Blacksite09` scene transition, and clean Host-exit recovery to `MainMenu`.
+- **Observed Failure**: `HOST_GAME: Scene=Blacksite09 Players=2` vs `CLONE_GAME: Scene=Blacksite09 Players=0`; Clone `Editor.log`:
+  `[Netcode] [Deferred OnSpawn] Messages were received for a trigger of type NetworkVariableDeltaMessage associated with id (2) and (3), but the NetworkObject was not received within the timeout period 10 second(s).`
+- **Root Causes & Fixes (#39 -> #40)**:
+  1. `NetworkMatchManager.OnNetworkSpawn()` spawned player/bot `NetworkObject`s before remote clients completed `NetworkSceneManager.OnLoadEventCompleted`. Patched `NetworkMatchManager.cs` to defer initial spawning to `OnLoadEventCompleted` (plus `OnSynchronizeComplete` / `OnLoadComplete` for late joiners, and a direct-scene Editor fallback).
+  2. Programmatically saved `Player_Networked.prefab` and `Bot_Networked.prefab` had `GlobalObjectIdHash: 0` on disk (`NetworkObject.cs:1909`). Regenerated and saved valid non-zero hashes (`Player_Networked`: `4172435356`, `Bot_Networked`: `3215041710`, `Blacksite09/NetworkMatchManager`: `2389697417`).
+  3. Added `new` to `NetworkPlayerBridge.IsLocalPlayer` to eliminate `CS0108`.
+
+#### 3. Gate 4 — Cross-Process MPPM Verification Attempt #2 (**PASS**, 2026-11-20 01:59, `#40` — postdates newest networking source change)
+- **Compile & Prefab Validation**:
+  - `errors: 0, warnings: 0` across all Unity scripts.
+  - Confirmed non-zero `GlobalObjectIdHash` on disk: `Player_Networked = 4172435356`, `Bot_Networked = 3215041710`, `Blacksite09/NetworkMatchManager = 2389697417`.
+  - `PlayerSettings.runInBackground = true` (`runInBackground: 1`).
+- **Live 2-Process Unity Cloud Relay Run (Main Editor PID `71694` + MPPM Clone `mppm3ef12094`)**:
+  - **Auth**: Host `bhNzYz7KhjurAUqtHl7FXSm3xAxe` | Clone `0UPaYrT6yo3MGfeDPASTkLszhQrj` (`CloudState=Ready` on both processes).
+  - **Relay Session & Cross-Process Connect**:
+    - Host created real Unity Relay session: `Mode=UnityRelay`, `JoinCode=N8FP8T`.
+    - Clone joined via `JoinByCodeAsync("N8FP8T")`:
+      - `HOST: Listening=True IsHost=True Clients=2`
+      - `CLONE: Listening=True IsConnectedClient=True LocalClientId=1 RTT=89ms` (live WAN Relay RTT `43–89 ms`).
+  - **Synchronous Scene Transition & Replicated Avatar Parity**:
+    - `HOST_GAME: Scene=Blacksite09 Players=2 Phase=InProgress Mode=UnityRelay` (`HostLocal=True`)
+    - `CLONE_GAME: Scene=Blacksite09 Players=2 Phase=InProgress Mode=UnityRelay` (`CloneLocal=True`)
+  - **Graceful Host-Exit Recovery**:
+    - `CLONE_AFTER_EXIT: Scene=MainMenu Listening=False CursorLock=None Visible=True`
+  - **Console Status**:
+    - Host: `consoleErrors: 0, consoleWarnings: 0`
+    - Clone: `consoleErrors: 0, consoleWarnings: 1`
+- **Solo Skirmish & Authoritative Combat Verification (Local NGO Host + 5 NavMesh AI Bots)**:
+  - `Scene=Blacksite09 LocalPlayer=True Bots=5 NavBots=5 Phase=InProgress`
+  - Live weapon firing (`Ammo 30 -> 8`), live authoritative combat damage & 35% armor absorption (`HP=100->96->82`, `ARM=50->47->38`), `consoleErrors: 0`.
+- **Recorded Final-Testing Gaps**:
+  - Live WAN Unity Relay latency (`43–89 ms`), 2-process cross-process scene/avatar sync, host-exit recovery, and Solo Skirmish 5-bot authoritative combat (`HP`/`Armor` absorption & weapon firing) were verified live; explicit synthetic network-emulator stress (`netcode.gameobjects.simulator set`), cross-process combat damage/score `NetworkVariable` read-back across two human instances, and cross-OS standalone player tests (`macOS` <-> `Windows`) are recorded as remaining post-build final-testing checks.
