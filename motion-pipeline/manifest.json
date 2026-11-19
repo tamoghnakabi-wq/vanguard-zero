@@ -1,0 +1,1073 @@
+{
+  "schemaVersion": 1,
+  "project": "VANGUARD ZERO",
+  "pipeline": "NVIDIA MotionBricks-SOMA-RP-v1 (ONNX FP32 on Apple Silicon M4 CPU)",
+  "sourceRepository": "https://github.com/NVlabs/motionbricks",
+  "licensing": {
+    "neuralModel": "NVIDIA Open Model Agreement (MotionBricks-SOMA-RP-v1 ONNX FP32 \u2014 permits commercial use & generated motion redistribution)",
+    "runtimeAndSkeletonReference": "Apache 2.0 (NVlabs/motionbricks code & SOMA USD skeleton)",
+    "evaluationSampleBvhsUsed": false,
+    "note": "All 18 animation clips were neurally synthesized from original authored tactical conditioning poses via MotionBricks-SOMA-RP-v1; zero NVIDIA evaluation-only sample BVH files were copied or redistributed."
+  },
+  "targetRigContract": {
+    "characterFbx": "blender-assets/exports/characters/TacticalOperator.fbx",
+    "unityModelImporterAnimationType": "Generic (required — MotionBricksUnityImporter auto-enforces Generic + CreateFromThisModel Avatar because Unity ignores Transform curves on Humanoid avatars)",
+    "restPose": "T-Pose (1.80m standing height, Hips at Y=0.96m, facing +Z in Unity / -Y in Blender)",
+    "coordinateSystem": "Unity Left-Handed (+X Right, +Y Up, +Z Forward, meters)",
+    "boneCount": 22,
+    "bones": [
+      {
+        "name": "Hips",
+        "parent": null,
+        "somaSource": "Hips",
+        "tposeOffsetMeters": [
+          0.0,
+          0.96,
+          0.0
+        ]
+      },
+      {
+        "name": "Spine",
+        "parent": "Hips",
+        "somaSource": "Spine1",
+        "tposeOffsetMeters": [
+          0.0,
+          0.11,
+          0.0
+        ]
+      },
+      {
+        "name": "Chest",
+        "parent": "Spine",
+        "somaSource": "Spine2",
+        "tposeOffsetMeters": [
+          0.0,
+          0.14,
+          0.0
+        ]
+      },
+      {
+        "name": "UpperChest",
+        "parent": "Chest",
+        "somaSource": "Chest",
+        "tposeOffsetMeters": [
+          0.0,
+          0.14,
+          0.0
+        ]
+      },
+      {
+        "name": "Neck",
+        "parent": "UpperChest",
+        "somaSource": "Neck1",
+        "tposeOffsetMeters": [
+          0.0,
+          0.14,
+          0.0
+        ]
+      },
+      {
+        "name": "Head",
+        "parent": "Neck",
+        "somaSource": "Head",
+        "tposeOffsetMeters": [
+          0.0,
+          0.09,
+          0.0
+        ]
+      },
+      {
+        "name": "LeftShoulder",
+        "parent": "UpperChest",
+        "somaSource": "LeftShoulder",
+        "tposeOffsetMeters": [
+          -0.06,
+          0.09,
+          0.0
+        ]
+      },
+      {
+        "name": "LeftUpperArm",
+        "parent": "LeftShoulder",
+        "somaSource": "LeftArm",
+        "tposeOffsetMeters": [
+          -0.12,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "name": "LeftLowerArm",
+        "parent": "LeftUpperArm",
+        "somaSource": "LeftForeArm",
+        "tposeOffsetMeters": [
+          -0.28,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "name": "LeftHand",
+        "parent": "LeftLowerArm",
+        "somaSource": "LeftHand",
+        "tposeOffsetMeters": [
+          -0.26,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "name": "RightShoulder",
+        "parent": "UpperChest",
+        "somaSource": "RightShoulder",
+        "tposeOffsetMeters": [
+          0.06,
+          0.09,
+          0.0
+        ]
+      },
+      {
+        "name": "RightUpperArm",
+        "parent": "RightShoulder",
+        "somaSource": "RightArm",
+        "tposeOffsetMeters": [
+          0.12,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "name": "RightLowerArm",
+        "parent": "RightUpperArm",
+        "somaSource": "RightForeArm",
+        "tposeOffsetMeters": [
+          0.28,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "name": "RightHand",
+        "parent": "RightLowerArm",
+        "somaSource": "RightHand",
+        "tposeOffsetMeters": [
+          0.26,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "name": "LeftUpperLeg",
+        "parent": "Hips",
+        "somaSource": "LeftLeg",
+        "tposeOffsetMeters": [
+          -0.1,
+          -0.03,
+          0.0
+        ]
+      },
+      {
+        "name": "LeftLowerLeg",
+        "parent": "LeftUpperLeg",
+        "somaSource": "LeftShin",
+        "tposeOffsetMeters": [
+          0.0,
+          -0.43,
+          0.0
+        ]
+      },
+      {
+        "name": "LeftFoot",
+        "parent": "LeftLowerLeg",
+        "somaSource": "LeftFoot",
+        "tposeOffsetMeters": [
+          0.0,
+          -0.42,
+          0.0
+        ]
+      },
+      {
+        "name": "LeftToes",
+        "parent": "LeftFoot",
+        "somaSource": "LeftToeBase",
+        "tposeOffsetMeters": [
+          0.0,
+          -0.06,
+          0.13
+        ]
+      },
+      {
+        "name": "RightUpperLeg",
+        "parent": "Hips",
+        "somaSource": "RightLeg",
+        "tposeOffsetMeters": [
+          0.1,
+          -0.03,
+          0.0
+        ]
+      },
+      {
+        "name": "RightLowerLeg",
+        "parent": "RightUpperLeg",
+        "somaSource": "RightShin",
+        "tposeOffsetMeters": [
+          0.0,
+          -0.43,
+          0.0
+        ]
+      },
+      {
+        "name": "RightFoot",
+        "parent": "RightLowerLeg",
+        "somaSource": "RightFoot",
+        "tposeOffsetMeters": [
+          0.0,
+          -0.42,
+          0.0
+        ]
+      },
+      {
+        "name": "RightToes",
+        "parent": "RightFoot",
+        "somaSource": "RightToeBase",
+        "tposeOffsetMeters": [
+          0.0,
+          -0.06,
+          0.13
+        ]
+      }
+    ],
+    "sockets": [
+      "RightHandWeaponMount",
+      "HeadEyePoint"
+    ]
+  },
+  "unityScripts": {
+    "editorImporter": "exports/unity-scripts/Editor/MotionBricksUnityImporter.cs",
+    "editorEntryMethod": "VanguardZero.Animation.Editor.MotionBricksUnityImporter.ImportAllFromMotionPipeline",
+    "runtimeScripts": [
+      "exports/unity-scripts/Runtime/MotionBricksContracts.cs",
+      "exports/unity-scripts/Runtime/MotionBricksAnimatorDriver.cs",
+      "exports/unity-scripts/Runtime/TacticalUpperBodyAimIK.cs",
+      "exports/unity-scripts/Runtime/MotionBricksFootIK.cs",
+      "exports/unity-scripts/Runtime/MotionBricksAnimEventRelay.cs"
+    ]
+  },
+  "summary": {
+    "totalClips": 18,
+    "totalNeuralBricksGenerated": 60,
+    "totalOnnxInferenceMs": 1231.92,
+    "avgOnnxInferenceMsPerBrick": 20.53,
+    "totalPipelineWallSeconds": 23.29
+  },
+  "clips": [
+    {
+      "name": "Tactical_Idle_Aim",
+      "category": "locomotion",
+      "layer": "Base",
+      "description": "Alert standing combat-ready idle with subtle neural weight shift & breathing",
+      "isLoop": true,
+      "fps": 60.0,
+      "frameCount": 133,
+      "duration": 2.2,
+      "averageVelocity": [
+        -0.0,
+        0.0,
+        0.0
+      ],
+      "averageSpeed": 0.0,
+      "recommendedBlendInSeconds": 0.18,
+      "footstepEvents": [],
+      "mbclipPath": "exports/mbclips/Tactical_Idle_Aim.mbclip.json",
+      "bvhPath": "exports/bvh/Tactical_Idle_Aim.bvh",
+      "neuralMetrics": {
+        "model": "MotionBricks-SOMA-RP-v1",
+        "onnxFile": "mmm_v6_soma_fp32.onnx",
+        "license": "NVIDIA Open Model Agreement",
+        "inferenceMs": 45.54,
+        "bricksChained": 2,
+        "predictedTokens": [
+          10,
+          10
+        ]
+      }
+    },
+    {
+      "name": "Tactical_Crouch_Idle",
+      "category": "crouch",
+      "layer": "Base",
+      "description": "Low-profile tactical crouch idle behind cover with subtle balance shift",
+      "isLoop": true,
+      "fps": 60.0,
+      "frameCount": 133,
+      "duration": 2.2,
+      "averageVelocity": [
+        -0.0,
+        0.0,
+        0.0
+      ],
+      "averageSpeed": 0.0,
+      "recommendedBlendInSeconds": 0.16,
+      "footstepEvents": [],
+      "mbclipPath": "exports/mbclips/Tactical_Crouch_Idle.mbclip.json",
+      "bvhPath": "exports/bvh/Tactical_Crouch_Idle.bvh",
+      "neuralMetrics": {
+        "model": "MotionBricks-SOMA-RP-v1",
+        "onnxFile": "mmm_v6_soma_fp32.onnx",
+        "license": "NVIDIA Open Model Agreement",
+        "inferenceMs": 41.64,
+        "bricksChained": 2,
+        "predictedTokens": [
+          10,
+          10
+        ]
+      }
+    },
+    {
+      "name": "Tactical_Walk_Fwd",
+      "category": "locomotion",
+      "layer": "Base",
+      "description": "Tactical forward advance walk (~2.0 m/s) with weapon raised",
+      "isLoop": true,
+      "fps": 60.0,
+      "frameCount": 57,
+      "duration": 0.9333,
+      "averageVelocity": [
+        0.0139,
+        0.0,
+        1.9171
+      ],
+      "averageSpeed": 1.9171,
+      "recommendedBlendInSeconds": 0.14,
+      "footstepEvents": [
+        {
+          "time": 0.1667,
+          "normalizedTime": 0.1786,
+          "foot": "Right",
+          "intensity": 0.891
+        },
+        {
+          "time": 0.45,
+          "normalizedTime": 0.4821,
+          "foot": "Left",
+          "intensity": 0.929
+        }
+      ],
+      "mbclipPath": "exports/mbclips/Tactical_Walk_Fwd.mbclip.json",
+      "bvhPath": "exports/bvh/Tactical_Walk_Fwd.bvh",
+      "neuralMetrics": {
+        "model": "MotionBricks-SOMA-RP-v1",
+        "onnxFile": "mmm_v6_soma_fp32.onnx",
+        "license": "NVIDIA Open Model Agreement",
+        "inferenceMs": 102.34,
+        "bricksChained": 5,
+        "predictedTokens": [
+          7,
+          8,
+          8,
+          7,
+          8
+        ],
+        "extractedWindow30Hz": [
+          43,
+          71
+        ],
+        "cyclePoseError": 0.01026
+      }
+    },
+    {
+      "name": "Tactical_Walk_Bwd",
+      "category": "locomotion",
+      "layer": "Base",
+      "description": "Tactical combat backpedal (~1.6 m/s) keeping threat forward",
+      "isLoop": true,
+      "fps": 60.0,
+      "frameCount": 57,
+      "duration": 0.9333,
+      "averageVelocity": [
+        0.0114,
+        0.0,
+        -1.581
+      ],
+      "averageSpeed": 1.5811,
+      "recommendedBlendInSeconds": 0.14,
+      "footstepEvents": [
+        {
+          "time": 0.3167,
+          "normalizedTime": 0.3393,
+          "foot": "Left",
+          "intensity": 0.996
+        },
+        {
+          "time": 0.75,
+          "normalizedTime": 0.8036,
+          "foot": "Right",
+          "intensity": 0.986
+        }
+      ],
+      "mbclipPath": "exports/mbclips/Tactical_Walk_Bwd.mbclip.json",
+      "bvhPath": "exports/bvh/Tactical_Walk_Bwd.bvh",
+      "neuralMetrics": {
+        "model": "MotionBricks-SOMA-RP-v1",
+        "onnxFile": "mmm_v6_soma_fp32.onnx",
+        "license": "NVIDIA Open Model Agreement",
+        "inferenceMs": 102.48,
+        "bricksChained": 5,
+        "predictedTokens": [
+          7,
+          8,
+          8,
+          8,
+          7
+        ],
+        "extractedWindow30Hz": [
+          61,
+          89
+        ],
+        "cyclePoseError": 0.00039
+      }
+    },
+    {
+      "name": "Tactical_Strafe_Left",
+      "category": "locomotion",
+      "layer": "Base",
+      "description": "Combat lateral strafe left (~2.2 m/s) for corner peeking",
+      "isLoop": true,
+      "fps": 60.0,
+      "frameCount": 49,
+      "duration": 0.8,
+      "averageVelocity": [
+        -2.0033,
+        0.0,
+        -0.0014
+      ],
+      "averageSpeed": 2.0033,
+      "recommendedBlendInSeconds": 0.14,
+      "footstepEvents": [
+        {
+          "time": 0.1833,
+          "normalizedTime": 0.2292,
+          "foot": "Right",
+          "intensity": 0.73
+        },
+        {
+          "time": 0.6333,
+          "normalizedTime": 0.7917,
+          "foot": "Left",
+          "intensity": 0.941
+        }
+      ],
+      "mbclipPath": "exports/mbclips/Tactical_Strafe_Left.mbclip.json",
+      "bvhPath": "exports/bvh/Tactical_Strafe_Left.bvh",
+      "neuralMetrics": {
+        "model": "MotionBricks-SOMA-RP-v1",
+        "onnxFile": "mmm_v6_soma_fp32.onnx",
+        "license": "NVIDIA Open Model Agreement",
+        "inferenceMs": 102.25,
+        "bricksChained": 5,
+        "predictedTokens": [
+          7,
+          7,
+          8,
+          8,
+          8
+        ],
+        "extractedWindow30Hz": [
+          76,
+          100
+        ],
+        "cyclePoseError": 0.0017
+      }
+    },
+    {
+      "name": "Tactical_Strafe_Right",
+      "category": "locomotion",
+      "layer": "Base",
+      "description": "Combat lateral strafe right (~2.2 m/s) for corner peeking",
+      "isLoop": true,
+      "fps": 60.0,
+      "frameCount": 71,
+      "duration": 1.1667,
+      "averageVelocity": [
+        1.9584,
+        0.0,
+        -0.0072
+      ],
+      "averageSpeed": 1.9584,
+      "recommendedBlendInSeconds": 0.14,
+      "footstepEvents": [
+        {
+          "time": 0.7333,
+          "normalizedTime": 0.6286,
+          "foot": "Left",
+          "intensity": 0.924
+        },
+        {
+          "time": 1.1,
+          "normalizedTime": 0.9429,
+          "foot": "Right",
+          "intensity": 0.992
+        }
+      ],
+      "mbclipPath": "exports/mbclips/Tactical_Strafe_Right.mbclip.json",
+      "bvhPath": "exports/bvh/Tactical_Strafe_Right.bvh",
+      "neuralMetrics": {
+        "model": "MotionBricks-SOMA-RP-v1",
+        "onnxFile": "mmm_v6_soma_fp32.onnx",
+        "license": "NVIDIA Open Model Agreement",
+        "inferenceMs": 106.75,
+        "bricksChained": 5,
+        "predictedTokens": [
+          7,
+          7,
+          7,
+          8,
+          8
+        ],
+        "extractedWindow30Hz": [
+          70,
+          105
+        ],
+        "cyclePoseError": 0.00635
+      }
+    },
+    {
+      "name": "Tactical_Jog_Fwd",
+      "category": "locomotion",
+      "layer": "Base",
+      "description": "Brisk combat jog (~3.2 m/s) for mid-pace repositioning & AI patrol",
+      "isLoop": true,
+      "fps": 60.0,
+      "frameCount": 41,
+      "duration": 0.6667,
+      "averageVelocity": [
+        0.0297,
+        0.0,
+        3.4745
+      ],
+      "averageSpeed": 3.4746,
+      "recommendedBlendInSeconds": 0.14,
+      "footstepEvents": [
+        {
+          "time": 0.15,
+          "normalizedTime": 0.225,
+          "foot": "Right",
+          "intensity": 0.925
+        },
+        {
+          "time": 0.4833,
+          "normalizedTime": 0.725,
+          "foot": "Left",
+          "intensity": 0.929
+        }
+      ],
+      "mbclipPath": "exports/mbclips/Tactical_Jog_Fwd.mbclip.json",
+      "bvhPath": "exports/bvh/Tactical_Jog_Fwd.bvh",
+      "neuralMetrics": {
+        "model": "MotionBricks-SOMA-RP-v1",
+        "onnxFile": "mmm_v6_soma_fp32.onnx",
+        "license": "NVIDIA Open Model Agreement",
+        "inferenceMs": 102.9,
+        "bricksChained": 5,
+        "predictedTokens": [
+          7,
+          7,
+          7,
+          7,
+          7
+        ],
+        "extractedWindow30Hz": [
+          65,
+          85
+        ],
+        "cyclePoseError": 0.00068
+      }
+    },
+    {
+      "name": "Tactical_Sprint_Fwd",
+      "category": "locomotion",
+      "layer": "Base",
+      "description": "Full athletic tactical sprint (~4.8 m/s) with low-ready cross-chest rifle carry",
+      "isLoop": true,
+      "fps": 60.0,
+      "frameCount": 37,
+      "duration": 0.6,
+      "averageVelocity": [
+        0.0083,
+        0.0,
+        4.9676
+      ],
+      "averageSpeed": 4.9676,
+      "recommendedBlendInSeconds": 0.14,
+      "footstepEvents": [
+        {
+          "time": 0.1833,
+          "normalizedTime": 0.3056,
+          "foot": "Left",
+          "intensity": 0.753
+        },
+        {
+          "time": 0.5,
+          "normalizedTime": 0.8333,
+          "foot": "Right",
+          "intensity": 0.777
+        }
+      ],
+      "mbclipPath": "exports/mbclips/Tactical_Sprint_Fwd.mbclip.json",
+      "bvhPath": "exports/bvh/Tactical_Sprint_Fwd.bvh",
+      "neuralMetrics": {
+        "model": "MotionBricks-SOMA-RP-v1",
+        "onnxFile": "mmm_v6_soma_fp32.onnx",
+        "license": "NVIDIA Open Model Agreement",
+        "inferenceMs": 101.07,
+        "bricksChained": 5,
+        "predictedTokens": [
+          7,
+          7,
+          7,
+          7,
+          7
+        ],
+        "extractedWindow30Hz": [
+          87,
+          105
+        ],
+        "cyclePoseError": 0.00277
+      }
+    },
+    {
+      "name": "Tactical_Crouch_Walk_Fwd",
+      "category": "crouch",
+      "layer": "Base",
+      "description": "Stealth forward crouch-walk (~1.5 m/s) behind low cover",
+      "isLoop": true,
+      "fps": 60.0,
+      "frameCount": 43,
+      "duration": 0.7,
+      "averageVelocity": [
+        0.0005,
+        0.0,
+        1.5543
+      ],
+      "averageSpeed": 1.5543,
+      "recommendedBlendInSeconds": 0.16,
+      "footstepEvents": [
+        {
+          "time": 0.2167,
+          "normalizedTime": 0.3095,
+          "foot": "Left",
+          "intensity": 0.986
+        },
+        {
+          "time": 0.5833,
+          "normalizedTime": 0.8333,
+          "foot": "Right",
+          "intensity": 0.995
+        }
+      ],
+      "mbclipPath": "exports/mbclips/Tactical_Crouch_Walk_Fwd.mbclip.json",
+      "bvhPath": "exports/bvh/Tactical_Crouch_Walk_Fwd.bvh",
+      "neuralMetrics": {
+        "model": "MotionBricks-SOMA-RP-v1",
+        "onnxFile": "mmm_v6_soma_fp32.onnx",
+        "license": "NVIDIA Open Model Agreement",
+        "inferenceMs": 80.06,
+        "bricksChained": 4,
+        "predictedTokens": [
+          7,
+          7,
+          7,
+          7
+        ],
+        "extractedWindow30Hz": [
+          41,
+          62
+        ],
+        "cyclePoseError": 8e-05
+      }
+    },
+    {
+      "name": "Tactical_Crouch_Walk_Bwd",
+      "category": "crouch",
+      "layer": "Base",
+      "description": "Stealth backward crouch-walk (~1.3 m/s)",
+      "isLoop": true,
+      "fps": 60.0,
+      "frameCount": 43,
+      "duration": 0.7,
+      "averageVelocity": [
+        0.0021,
+        0.0,
+        -1.3605
+      ],
+      "averageSpeed": 1.3605,
+      "recommendedBlendInSeconds": 0.16,
+      "footstepEvents": [
+        {
+          "time": 0.1833,
+          "normalizedTime": 0.2619,
+          "foot": "Left",
+          "intensity": 0.882
+        },
+        {
+          "time": 0.6,
+          "normalizedTime": 0.8571,
+          "foot": "Right",
+          "intensity": 0.986
+        }
+      ],
+      "mbclipPath": "exports/mbclips/Tactical_Crouch_Walk_Bwd.mbclip.json",
+      "bvhPath": "exports/bvh/Tactical_Crouch_Walk_Bwd.bvh",
+      "neuralMetrics": {
+        "model": "MotionBricks-SOMA-RP-v1",
+        "onnxFile": "mmm_v6_soma_fp32.onnx",
+        "license": "NVIDIA Open Model Agreement",
+        "inferenceMs": 80.45,
+        "bricksChained": 4,
+        "predictedTokens": [
+          7,
+          7,
+          7,
+          7
+        ],
+        "extractedWindow30Hz": [
+          22,
+          43
+        ],
+        "cyclePoseError": 0.00026
+      }
+    },
+    {
+      "name": "Tactical_Crouch_Strafe_Left",
+      "category": "crouch",
+      "layer": "Base",
+      "description": "Crouch lateral strafe left (~1.5 m/s) for low-cover peeking",
+      "isLoop": true,
+      "fps": 60.0,
+      "frameCount": 43,
+      "duration": 0.7,
+      "averageVelocity": [
+        -1.5543,
+        0.0,
+        0.0
+      ],
+      "averageSpeed": 1.5543,
+      "recommendedBlendInSeconds": 0.16,
+      "footstepEvents": [
+        {
+          "time": 0.0833,
+          "normalizedTime": 0.119,
+          "foot": "Left",
+          "intensity": 0.973
+        },
+        {
+          "time": 0.5333,
+          "normalizedTime": 0.7619,
+          "foot": "Right",
+          "intensity": 0.999
+        }
+      ],
+      "mbclipPath": "exports/mbclips/Tactical_Crouch_Strafe_Left.mbclip.json",
+      "bvhPath": "exports/bvh/Tactical_Crouch_Strafe_Left.bvh",
+      "neuralMetrics": {
+        "model": "MotionBricks-SOMA-RP-v1",
+        "onnxFile": "mmm_v6_soma_fp32.onnx",
+        "license": "NVIDIA Open Model Agreement",
+        "inferenceMs": 83.11,
+        "bricksChained": 4,
+        "predictedTokens": [
+          7,
+          7,
+          7,
+          7
+        ],
+        "extractedWindow30Hz": [
+          63,
+          84
+        ],
+        "cyclePoseError": 1e-05
+      }
+    },
+    {
+      "name": "Tactical_Crouch_Strafe_Right",
+      "category": "crouch",
+      "layer": "Base",
+      "description": "Crouch lateral strafe right (~1.5 m/s) for low-cover peeking",
+      "isLoop": true,
+      "fps": 60.0,
+      "frameCount": 43,
+      "duration": 0.7,
+      "averageVelocity": [
+        1.5543,
+        0.0,
+        0.0
+      ],
+      "averageSpeed": 1.5543,
+      "recommendedBlendInSeconds": 0.16,
+      "footstepEvents": [
+        {
+          "time": 0.3333,
+          "normalizedTime": 0.4762,
+          "foot": "Left",
+          "intensity": 0.979
+        },
+        {
+          "time": 0.65,
+          "normalizedTime": 0.9286,
+          "foot": "Right",
+          "intensity": 0.964
+        }
+      ],
+      "mbclipPath": "exports/mbclips/Tactical_Crouch_Strafe_Right.mbclip.json",
+      "bvhPath": "exports/bvh/Tactical_Crouch_Strafe_Right.bvh",
+      "neuralMetrics": {
+        "model": "MotionBricks-SOMA-RP-v1",
+        "onnxFile": "mmm_v6_soma_fp32.onnx",
+        "license": "NVIDIA Open Model Agreement",
+        "inferenceMs": 80.78,
+        "bricksChained": 4,
+        "predictedTokens": [
+          7,
+          7,
+          7,
+          7
+        ],
+        "extractedWindow30Hz": [
+          63,
+          84
+        ],
+        "cyclePoseError": 7e-05
+      }
+    },
+    {
+      "name": "Tactical_Slide",
+      "category": "action",
+      "layer": "Base",
+      "description": "High-speed tactical knee-slide from sprint into low crouch",
+      "isLoop": false,
+      "fps": 60.0,
+      "frameCount": 77,
+      "duration": 1.2667,
+      "averageVelocity": [
+        -0.0,
+        0.0,
+        1.9737
+      ],
+      "averageSpeed": 1.9737,
+      "recommendedBlendInSeconds": 0.1,
+      "footstepEvents": [
+        {
+          "time": 0.4333,
+          "normalizedTime": 0.3421,
+          "foot": "Right",
+          "intensity": 0.998
+        },
+        {
+          "time": 0.6,
+          "normalizedTime": 0.4737,
+          "foot": "Left",
+          "intensity": 0.791
+        },
+        {
+          "time": 1.0667,
+          "normalizedTime": 0.8421,
+          "foot": "Right",
+          "intensity": 0.829
+        }
+      ],
+      "mbclipPath": "exports/mbclips/Tactical_Slide.mbclip.json",
+      "bvhPath": "exports/bvh/Tactical_Slide.bvh",
+      "neuralMetrics": {
+        "model": "MotionBricks-SOMA-RP-v1",
+        "onnxFile": "mmm_v6_soma_fp32.onnx",
+        "license": "NVIDIA Open Model Agreement",
+        "inferenceMs": 38.4,
+        "bricksChained": 2,
+        "predictedTokens": [
+          6,
+          7
+        ]
+      }
+    },
+    {
+      "name": "Tactical_Jump_Vault",
+      "category": "action",
+      "layer": "Base",
+      "description": "Explosive tactical jump / low-barrier vault with tucked knees and absorbed landing",
+      "isLoop": false,
+      "fps": 60.0,
+      "frameCount": 69,
+      "duration": 1.1333,
+      "averageVelocity": [
+        -0.0,
+        0.0,
+        1.6324
+      ],
+      "averageSpeed": 1.6324,
+      "recommendedBlendInSeconds": 0.08,
+      "footstepEvents": [
+        {
+          "time": 0.8833,
+          "normalizedTime": 0.7794,
+          "foot": "Left",
+          "intensity": 0.685
+        },
+        {
+          "time": 0.9167,
+          "normalizedTime": 0.8088,
+          "foot": "Right",
+          "intensity": 0.794
+        }
+      ],
+      "mbclipPath": "exports/mbclips/Tactical_Jump_Vault.mbclip.json",
+      "bvhPath": "exports/bvh/Tactical_Jump_Vault.bvh",
+      "neuralMetrics": {
+        "model": "MotionBricks-SOMA-RP-v1",
+        "onnxFile": "mmm_v6_soma_fp32.onnx",
+        "license": "NVIDIA Open Model Agreement",
+        "inferenceMs": 41.27,
+        "bricksChained": 2,
+        "predictedTokens": [
+          6,
+          6
+        ]
+      }
+    },
+    {
+      "name": "Tactical_Turn_Left_90",
+      "category": "action",
+      "layer": "Base",
+      "description": "Crisp 90-degree left tactical turn-in-place with planted pivot footwork",
+      "isLoop": false,
+      "fps": 60.0,
+      "frameCount": 43,
+      "duration": 0.7,
+      "averageVelocity": [
+        -0.0,
+        0.0,
+        0.0
+      ],
+      "averageSpeed": 0.0,
+      "recommendedBlendInSeconds": 0.12,
+      "footstepEvents": [],
+      "mbclipPath": "exports/mbclips/Tactical_Turn_Left_90.mbclip.json",
+      "bvhPath": "exports/bvh/Tactical_Turn_Left_90.bvh",
+      "neuralMetrics": {
+        "model": "MotionBricks-SOMA-RP-v1",
+        "onnxFile": "mmm_v6_soma_fp32.onnx",
+        "license": "NVIDIA Open Model Agreement",
+        "inferenceMs": 21.92,
+        "bricksChained": 1,
+        "predictedTokens": [
+          7
+        ]
+      }
+    },
+    {
+      "name": "Tactical_Turn_Right_90",
+      "category": "action",
+      "layer": "Base",
+      "description": "Crisp 90-degree right tactical turn-in-place with planted pivot footwork",
+      "isLoop": false,
+      "fps": 60.0,
+      "frameCount": 43,
+      "duration": 0.7,
+      "averageVelocity": [
+        -0.0,
+        0.0,
+        0.0
+      ],
+      "averageSpeed": 0.0,
+      "recommendedBlendInSeconds": 0.12,
+      "footstepEvents": [],
+      "mbclipPath": "exports/mbclips/Tactical_Turn_Right_90.mbclip.json",
+      "bvhPath": "exports/bvh/Tactical_Turn_Right_90.bvh",
+      "neuralMetrics": {
+        "model": "MotionBricks-SOMA-RP-v1",
+        "onnxFile": "mmm_v6_soma_fp32.onnx",
+        "license": "NVIDIA Open Model Agreement",
+        "inferenceMs": 19.86,
+        "bricksChained": 1,
+        "predictedTokens": [
+          7
+        ]
+      }
+    },
+    {
+      "name": "Tactical_HitReact_Torso",
+      "category": "combat",
+      "layer": "CombatAdditive",
+      "description": "Visceral upper-body ballistic flinch and tactical recovery",
+      "isLoop": false,
+      "fps": 60.0,
+      "frameCount": 69,
+      "duration": 1.1333,
+      "averageVelocity": [
+        -0.0,
+        0.0,
+        0.0
+      ],
+      "averageSpeed": 0.0,
+      "recommendedBlendInSeconds": 0.05,
+      "footstepEvents": [
+        {
+          "time": 0.8333,
+          "normalizedTime": 0.7353,
+          "foot": "Left",
+          "intensity": 0.996
+        }
+      ],
+      "mbclipPath": "exports/mbclips/Tactical_HitReact_Torso.mbclip.json",
+      "bvhPath": "exports/bvh/Tactical_HitReact_Torso.bvh",
+      "neuralMetrics": {
+        "model": "MotionBricks-SOMA-RP-v1",
+        "onnxFile": "mmm_v6_soma_fp32.onnx",
+        "license": "NVIDIA Open Model Agreement",
+        "inferenceMs": 42.36,
+        "bricksChained": 2,
+        "predictedTokens": [
+          6,
+          6
+        ]
+      }
+    },
+    {
+      "name": "Tactical_Death_Fall",
+      "category": "combat",
+      "layer": "Base",
+      "description": "Weight-collapse tactical elimination fall to ground",
+      "isLoop": false,
+      "fps": 60.0,
+      "frameCount": 77,
+      "duration": 1.2667,
+      "averageVelocity": [
+        -0.1421,
+        0.0,
+        -0.4895
+      ],
+      "averageSpeed": 0.5097,
+      "recommendedBlendInSeconds": 0.08,
+      "footstepEvents": [
+        {
+          "time": 0.1,
+          "normalizedTime": 0.0789,
+          "foot": "Right",
+          "intensity": 0.991
+        }
+      ],
+      "mbclipPath": "exports/mbclips/Tactical_Death_Fall.mbclip.json",
+      "bvhPath": "exports/bvh/Tactical_Death_Fall.bvh",
+      "neuralMetrics": {
+        "model": "MotionBricks-SOMA-RP-v1",
+        "onnxFile": "mmm_v6_soma_fp32.onnx",
+        "license": "NVIDIA Open Model Agreement",
+        "inferenceMs": 38.74,
+        "bricksChained": 2,
+        "predictedTokens": [
+          6,
+          7
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+# Large vendored third-party repo (2.3 GB ONNX weights + evaluation sample BVHs)
+vendor/
+# Local Python virtual environment
+.venv/
+# Raw model weights
+*.onnx
+# Python caches & macOS metadata
+__pycache__/
+*.pyc
+.DS_Store

@@ -67,7 +67,7 @@ export const WEAPONS: WeaponSpec[] = [
     role: "All-Range Precision & Sustained Suppression",
     description:
       "Full-length quad-rail carbine equipped with an illuminated holographic optic, angled foregrip, and muzzle brake. Tuned for controlled 3-round bursts across the Central Courtyard and decisive mid-range engagements around the Radar Spire.",
-    image: "/images/weapons/vx47.png",
+    image: "/images/weapons/vx47.webp",
     telemetry: {
       rpm: "720 RPM",
       magazine: "30 + 1",
@@ -97,7 +97,7 @@ export const WEAPONS: WeaponSpec[] = [
     role: "Close-Quarters Breach & Bunker Clearing",
     description:
       "Reinforced heavy-barrel breacher shotgun with vented thermal shroud, ghost-ring sights, and side-saddle reserve shells. Devastating one-shot stopping power inside the Server Bunker and tight catwalk stairwells.",
-    image: "/images/weapons/m890.png",
+    image: "/images/weapons/m890.webp",
     telemetry: {
       rpm: "75 RPM",
       magazine: "8 Tubular",
@@ -127,7 +127,7 @@ export const WEAPONS: WeaponSpec[] = [
     role: "Rapid Draw Backup & High-Mobility Flanks",
     description:
       "Machined slide sidearm featuring glowing tritium iron sights, underbarrel laser module, and threaded barrel. Near-instant draw speed makes the M19 the critical finisher when your primary runs dry mid-gunfight.",
-    image: "/images/weapons/m19.png",
+    image: "/images/weapons/m19.webp",
     telemetry: {
       rpm: "420 RPM",
       magazine: "15 + 1",
@@ -277,20 +277,20 @@ export const SCREENSHOTS: ScreenshotItem[] = [
     id: "server-bunker",
     title: "Server Bunker — Telemetry Terminal",
     sector: "SECTOR C3",
-    resolution: "1600×900 PBR",
+    resolution: "1280×960 PBR",
     caption:
       "Hard-surface blacksite server rack with emissive cyan indicator arrays, recessed keyboard bay, and brushed steel framing.",
-    src: "/images/screenshots/server-rack-asset.png",
+    src: "/images/screenshots/server-rack-asset.webp",
     tag: "INTERIOR ASSET",
   },
   {
     id: "radar-spire",
     title: "Radar Spire — Comms Array Centerpiece",
     sector: "SECTOR B2",
-    resolution: "1600×900 PBR",
+    resolution: "1280×960 PBR",
     caption:
       "Weathered lattice steel tower and rotating parabolic radar dish with glowing beacon anchoring the BLACKSITE-09 courtyard.",
-    src: "/images/screenshots/radar-spire-asset.png",
+    src: "/images/screenshots/radar-spire-asset.webp",
     tag: "HERO PROP",
   },
   {
@@ -300,8 +300,18 @@ export const SCREENSHOTS: ScreenshotItem[] = [
     resolution: "1600×900 PBR",
     caption:
       "Armored special-ops operator with quad-NVG FAST helmet, glowing cyan/amber visor faction signifier, and 22-bone Humanoid rig.",
-    src: "/images/screenshots/tactical-operator.png",
+    src: "/images/screenshots/tactical-operator.webp",
     tag: "CHARACTER",
+  },
+  {
+    id: "floodlight-tower",
+    title: "Tactical Dual-LED Floodlight Tower",
+    sector: "SECTOR A1",
+    resolution: "1280×960 PBR",
+    caption:
+      "Portable military stanchion floodlight casting warm dusk illumination across wet courtyard shipping containers and cover lanes.",
+    src: "/images/screenshots/floodlight-tower-asset.webp",
+    tag: "LIGHTING PROP",
   },
 ];
 

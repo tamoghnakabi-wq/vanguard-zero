@@ -103,11 +103,13 @@ pnpm-debug.log*
 venv/
 .pytest_cache/
 
-# --- Motion Pipeline Large ML Weights / Caches ---
+# --- Motion Pipeline Large ML Weights / Vendor / Caches ---
+motion-pipeline/vendor/
 motion-pipeline/checkpoints/
 motion-pipeline/weights/
 motion-pipeline/.cache/
 *.ckpt
 *.pth
 *.safetensors
+*.onnx
 
