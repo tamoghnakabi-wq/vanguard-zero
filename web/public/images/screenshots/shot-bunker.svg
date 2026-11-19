@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" fill="none">
+  <defs>
+    <radialGradient id="bunk" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#0e293b"/>
+      <stop offset="60%" stop-color="#09101a"/>
+      <stop offset="100%" stop-color="#04060a"/>
+    </radialGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bunk)"/>
+  <!-- Server Racks Corridor -->
+  <g stroke="#1e293b" stroke-width="2">
+    <rect x="110" y="130" width="180" height="460" fill="#0d1522"/>
+    <rect x="330" y="170" width="150" height="380" fill="#0f1826"/>
+    <rect x="800" y="170" width="150" height="380" fill="#0f1826"/>
+    <rect x="990" y="130" width="180" height="460" fill="#0d1522"/>
+  </g>
+  <!-- Emissive Cyan Telemetry LEDs -->
+  <g fill="#38bdf8" fill-opacity="0.75">
+    <rect x="140" y="190" width="120" height="6"/><rect x="140" y="230" width="84" height="6"/><rect x="140" y="270" width="110" height="6"/>
+    <rect x="1020" y="190" width="120" height="6"/><rect x="1020" y="230" width="96" height="6"/><rect x="1020" y="270" width="76" height="6"/>
+  </g>
+  <rect x="560" y="240" width="160" height="240" fill="#070d16" stroke="#38bdf8" stroke-opacity="0.4" stroke-width="2"/>
+  <rect x="615" y="190" width="50" height="10" fill="#f59e0b"/>
+  <text x="54" y="68" fill="#38bdf8" font-family="monospace" font-size="16" letter-spacing="3">BLACKSITE-09 // SECTOR C3 — SERVER BUNKER</text>
+  <text x="54" y="668" fill="#94a3b8" font-family="monospace" font-size="14" letter-spacing="2">INTERIOR SSAO + EMISSIVE RACK LIGHTING CAPTURE SLOT</text>
+</svg>

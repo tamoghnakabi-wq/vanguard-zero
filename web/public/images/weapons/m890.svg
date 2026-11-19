@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" fill="none">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#221914"/>
+      <stop offset="60%" stop-color="#0d0e14"/>
+      <stop offset="100%" stop-color="#05070b"/>
+    </radialGradient>
+    <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#64748b"/>
+      <stop offset="50%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="amberLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#f59e0b" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <g stroke="#334155" stroke-opacity="0.22" stroke-width="1">
+    <path d="M0 135H1200M0 270H1200M0 405H1200M0 540H1200"/>
+    <path d="M200 0V675M400 0V675M600 0V675M800 0V675M1000 0V675"/>
+  </g>
+  <!-- M890 Tactical Breacher Shotgun Silhouette -->
+  <g transform="translate(120, 210)">
+    <!-- Heavy Vented Barrel -->
+    <rect x="465" y="76" width="450" height="24" rx="2" fill="url(#steel)" stroke="#94a3b8" stroke-width="2"/>
+    <!-- Breacher Choke -->
+    <rect x="915" y="73" width="36" height="30" rx="2" fill="#334155" stroke="#f59e0b" stroke-width="1.5"/>
+    <!-- Tubular Magazine -->
+    <rect x="465" y="106" width="380" height="20" rx="3" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
+    <!-- Pump Forend -->
+    <rect x="550" y="102" width="190" height="36" rx="5" fill="#111827" stroke="#94a3b8" stroke-width="2"/>
+    <path d="M575 106V134M595 106V134M615 106V134M635 106V134M655 106V134M675 106V134M695 106V134M715 106V134" stroke="#475569" stroke-width="2"/>
+    <!-- Receiver -->
+    <path d="M275 74H470V146H295L275 128V74Z" fill="url(#steel)" stroke="#94a3b8" stroke-width="2"/>
+    <!-- Side Saddle Shells -->
+    <g fill="#b91c1c" stroke="#f59e0b" stroke-width="1">
+      <rect x="315" y="92" width="14" height="34" rx="2"/>
+      <rect x="336" y="92" width="14" height="34" rx="2"/>
+      <rect x="357" y="92" width="14" height="34" rx="2"/>
+      <rect x="378" y="92" width="14" height="34" rx="2"/>
+      <rect x="399" y="92" width="14" height="34" rx="2"/>
+      <rect x="420" y="92" width="14" height="34" rx="2"/>
+    </g>
+    <!-- Ghost Ring Sight -->
+    <rect x="320" y="60" width="36" height="14" rx="2" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5"/>
+    <!-- Pistol Grip & Stock -->
+    <path d="M275 120H310L292 214H252L275 120Z" fill="#111827" stroke="#64748b" stroke-width="2"/>
+    <path d="M55 82H275V130L105 180H55V82Z" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+  </g>
+  <rect x="120" y="535" width="960" height="1.5" fill="url(#amberLine)"/>
+  <text x="80" y="76" fill="#f59e0b" font-family="monospace" font-size="16" letter-spacing="4">ARMORY TELEMETRY // STUDIO RENDER SLOT</text>
+  <text x="80" y="608" fill="#e2e8f0" font-family="sans-serif" font-weight="700" font-size="28" letter-spacing="4">M890 BREACHER SHOTGUN</text>
+  <text x="1120" y="608" text-anchor="end" fill="#94a3b8" font-family="monospace" font-size="16" letter-spacing="2">12-GAUGE 00 BUCK // CQB</text>
+</svg>

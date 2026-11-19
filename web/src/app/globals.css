@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+:root {
+  --background: #07090d;
+  --surface: #0d1118;
+  --surface-elevated: #121824;
+  --foreground: #f1f5f9;
+  --muted: #94a3b8;
+  --accent-cyan: #38bdf8;
+  --accent-amber: #f59e0b;
+  --border-subtle: rgba(148, 163, 184, 0.14);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.font-display {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-mono {
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Tactical HUD atmospheric grid */
+.tactical-grid {
+  background-image:
+    linear-gradient(to right, rgba(148, 163, 184, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.055) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Subtle CRT / tactical visor scanline sheen */
+.scanlines {
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(2, 6, 14, 0.22) 3px,
+    rgba(2, 6, 14, 0.22) 4px
+  );
+}
+
+/* Glassmorphic tactical intel panel */
+.intel-panel {
+  background: linear-gradient(
+    180deg,
+    rgba(17, 23, 35, 0.86) 0%,
+    rgba(10, 14, 22, 0.92) 100%
+  );
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  backdrop-filter: blur(12px);
+}
+
+/* Corner targeting ticks */
+.hud-frame {
+  position: relative;
+}
+
+.hud-frame::before,
+.hud-frame::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  pointer-events: none;
+  border-color: rgba(56, 189, 248, 0.55);
+}
+
+.hud-frame::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid;
+  border-left: 2px solid;
+}
+
+.hud-frame::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 2.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

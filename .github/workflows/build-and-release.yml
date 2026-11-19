@@ -1,0 +1,287 @@
+name: Build & Release VANGUARD ZERO
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release tag (e.g. v1.0.0). Defaults to v0.0.0-manual-<run_number>.'
+        required: false
+        type: string
+      prerelease:
+        description: 'Mark GitHub Release as pre-release'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  UNITY_VERSION: '6000.3.22f1'
+  PROJECT_PATH: 'unity-game'
+  BUILD_NAME: 'VanguardZero'
+
+jobs:
+  resolve-version:
+    name: Resolve Release Tag
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.meta.outputs.tag }}
+      semver: ${{ steps.meta.outputs.semver }}
+      prerelease: ${{ steps.meta.outputs.prerelease }}
+    steps:
+      - name: Determine release version
+        id: meta
+        run: |
+          if [[ "${{ github.event_name }}" == "push" ]]; then
+            TAG="${GITHUB_REF_NAME}"
+            PRERELEASE="false"
+            if [[ "$TAG" == *-* ]]; then
+              PRERELEASE="true"
+            fi
+          else
+            TAG="${{ inputs.version }}"
+            if [[ -z "$TAG" ]]; then
+              TAG="v0.0.0-manual-${GITHUB_RUN_NUMBER}"
+            fi
+            PRERELEASE="${{ inputs.prerelease }}"
+          fi
+          SEMVER="${TAG#v}"
+          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+          echo "semver=${SEMVER}" >> "$GITHUB_OUTPUT"
+          echo "prerelease=${PRERELEASE}" >> "$GITHUB_OUTPUT"
+
+  build:
+    name: Build (${{ matrix.targetPlatform }})
+    needs: resolve-version
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - targetPlatform: StandaloneWindows64
+            artifactName: raw-StandaloneWindows64
+          - targetPlatform: StandaloneOSX
+            artifactName: raw-StandaloneOSX
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Verify Unity license secrets
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+        run: |
+          if [[ -z "$UNITY_LICENSE" && ( -z "$UNITY_EMAIL" || -z "$UNITY_PASSWORD" ) ]]; then
+            echo "::error::Unity CI license secrets are not configured. Add UNITY_LICENSE (personal .ulf) or UNITY_EMAIL + UNITY_PASSWORD + UNITY_SERIAL in Repository Secrets. See README.md for setup instructions."
+            exit 1
+          fi
+
+      - name: Cache Unity Library
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.PROJECT_PATH }}/Library
+          key: Library-${{ matrix.targetPlatform }}-${{ hashFiles('unity-game/Packages/packages-lock.json') }}
+          restore-keys: |
+            Library-${{ matrix.targetPlatform }}-
+
+      - name: Build Unity Standalone (${{ matrix.targetPlatform }})
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+        with:
+          unityVersion: ${{ env.UNITY_VERSION }}
+          projectPath: ${{ env.PROJECT_PATH }}
+          targetPlatform: ${{ matrix.targetPlatform }}
+          buildName: ${{ env.BUILD_NAME }}
+          buildsPath: builds
+          versioning: Custom
+          version: ${{ needs.resolve-version.outputs.semver }}
+
+      - name: Upload raw platform build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifactName }}
+          path: builds/${{ matrix.targetPlatform }}
+          retention-days: 3
+
+  package-windows:
+    name: Package Windows (ZIP + NSIS Setup)
+    needs: [resolve-version, build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout packaging scripts
+        uses: actions/checkout@v4
+
+      - name: Download raw Windows build
+        uses: actions/download-artifact@v4
+        with:
+          name: raw-StandaloneWindows64
+          path: staging/windows/VanguardZero
+
+      - name: Install zip and NSIS
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq zip nsis
+
+      - name: Add Windows installer helper & launch notes
+        run: |
+          cp .github/packaging/Install-VanguardZero.ps1 staging/windows/VanguardZero/
+          cat <<'EOF' > staging/windows/VanguardZero/README-WINDOWS.txt
+          VANGUARD ZERO — Windows 64-bit Standalone Build
+          ===============================================
+
+          QUICK LAUNCH (Portable):
+            1. Extract this entire ZIP archive to a folder (e.g., C:\Games\VanguardZero).
+            2. Double-click VanguardZero.exe.
+            3. If Windows SmartScreen appears for an indie unsigned build, click "More info" -> "Run anyway".
+
+          OPTIONAL INSTALLER (Desktop + Start Menu Shortcuts):
+            Right-click Install-VanguardZero.ps1 -> "Run with PowerShell"
+            (Automatically installs to %LOCALAPPDATA%\VanguardZero, clears Zone.Identifier, and creates shortcuts.)
+          EOF
+
+      - name: Build portable ZIP and NSIS Setup installer
+        env:
+          TAG: ${{ needs.resolve-version.outputs.tag }}
+          SEMVER: ${{ needs.resolve-version.outputs.semver }}
+        run: |
+          mkdir -p dist-windows
+          (cd staging/windows && zip -rq "../../dist-windows/VanguardZero-${TAG}-Windows-x64.zip" VanguardZero)
+          makensis \
+            -DVERSION="${SEMVER}" \
+            -DSOURCE_DIR="$(pwd)/staging/windows/VanguardZero" \
+            -DOUT_FILE="$(pwd)/dist-windows/VanguardZero-${TAG}-Windows-x64-Setup.exe" \
+            .github/packaging/vanguard-zero.nsi
+          (cd dist-windows && sha256sum "VanguardZero-${TAG}-Windows-x64.zip" "VanguardZero-${TAG}-Windows-x64-Setup.exe" > sha256-windows.txt)
+          cat dist-windows/sha256-windows.txt
+
+      - name: Upload Windows release assets
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-windows
+          path: dist-windows/
+          retention-days: 7
+
+  package-macos:
+    name: Package macOS (DMG + ZIP)
+    needs: [resolve-version, build]
+    runs-on: macos-15
+    steps:
+      - name: Download raw macOS build
+        uses: actions/download-artifact@v4
+        with:
+          name: raw-StandaloneOSX
+          path: staging/macos
+
+      - name: Verify app bundle & package DMG + ZIP
+        env:
+          TAG: ${{ needs.resolve-version.outputs.tag }}
+        run: |
+          set -euo pipefail
+          mkdir -p dist-macos dmg-root
+          APP_PATH=$(find staging/macos -maxdepth 3 -name "*.app" -type d | head -n 1)
+          if [[ -z "$APP_PATH" ]]; then
+            echo "::error::No .app bundle found in StandaloneOSX output"
+            ls -laR staging/macos
+            exit 1
+          fi
+          cp -R "$APP_PATH" "dmg-root/VanguardZero.app"
+          chmod -R +x "dmg-root/VanguardZero.app/Contents/MacOS"
+          ln -s /Applications "dmg-root/Applications"
+
+          # Create compressed DMG installer
+          hdiutil create \
+            -volname "VANGUARD ZERO" \
+            -srcfolder dmg-root \
+            -ov \
+            -format UDZO \
+            "dist-macos/VanguardZero-${TAG}-macOS-Universal.dmg"
+
+          # Create clean ZIP archive preserving resource forks & permissions
+          ditto -c -k --sequesterRsrc --keepParent \
+            "dmg-root/VanguardZero.app" \
+            "dist-macos/VanguardZero-${TAG}-macOS-Universal.zip"
+
+          (cd dist-macos && shasum -a 256 "VanguardZero-${TAG}-macOS-Universal.dmg" "VanguardZero-${TAG}-macOS-Universal.zip" > sha256-macos.txt)
+          cat dist-macos/sha256-macos.txt
+
+      - name: Upload macOS release assets
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-macos
+          path: dist-macos/
+          retention-days: 7
+
+  release:
+    name: Publish GitHub Release
+    needs: [resolve-version, package-windows, package-macos]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Windows assets
+        uses: actions/download-artifact@v4
+        with:
+          name: release-windows
+          path: release-assets
+
+      - name: Download macOS assets
+        uses: actions/download-artifact@v4
+        with:
+          name: release-macos
+          path: release-assets
+
+      - name: Combine SHA-256 checksums & generate release notes
+        env:
+          TAG: ${{ needs.resolve-version.outputs.tag }}
+        run: |
+          cat release-assets/sha256-macos.txt release-assets/sha256-windows.txt > release-assets/SHA256SUMS.txt
+          rm -f release-assets/sha256-macos.txt release-assets/sha256-windows.txt
+
+          cat <<EOF > release-notes.md
+          ## VANGUARD ZERO ${TAG}
+
+          AAA-quality hyper-realistic multiplayer tactical FPS built with **Unity 6 (6000.3.22f1 URP)**, **Blender**, and **Unity Relay** cross-platform multiplayer.
+
+          ### Platform Downloads
+          | Platform | Package | Notes |
+          | :--- | :--- | :--- |
+          | **macOS (Apple Silicon / Universal)** | \`VanguardZero-${TAG}-macOS-Universal.dmg\` / \`.zip\` | Drag \`VanguardZero.app\` to Applications |
+          | **Windows (64-bit)** | \`VanguardZero-${TAG}-Windows-x64.zip\` / \`Setup.exe\` | Portable ZIP (with PowerShell installer) or NSIS Setup |
+
+          ### First-Launch Security Notes (Unsigned Indie Builds)
+          - **macOS (Gatekeeper):** Right-click \`VanguardZero.app\` and select **Open**, or run \`xattr -cr /Applications/VanguardZero.app\` in Terminal before launching.
+          - **Windows (SmartScreen):** Click **More info** -> **Run anyway**, or run the bundled \`Install-VanguardZero.ps1\` which clears the download Zone.Identifier automatically.
+
+          ### SHA-256 Checksums
+          \`\`\`text
+          $(cat release-assets/SHA256SUMS.txt)
+          \`\`\`
+          EOF
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ needs.resolve-version.outputs.tag }}
+          name: VANGUARD ZERO ${{ needs.resolve-version.outputs.tag }}
+          body_path: release-notes.md
+          prerelease: ${{ needs.resolve-version.outputs.prerelease == 'true' }}
+          generate_release_notes: true
+          files: |
+            release-assets/*.zip
+            release-assets/*.dmg
+            release-assets/*.exe
+            release-assets/SHA256SUMS.txt

@@ -1,0 +1,113 @@
+# =============================================================================
+# VANGUARD ZERO — Root .gitignore (Unity 6 + Next.js + Blender + Audio + macOS)
+# Preserves all .meta, .cs, .fbx, .png, .wav, .asset, .prefab, .unity,
+# ProjectSettings/, and Packages/manifest.json + packages-lock.json.
+# =============================================================================
+
+# --- macOS & Windows OS Artifacts ---
+.DS_Store
+**/.DS_Store
+.AppleDouble
+.LSOverride
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --- Unity 6 (root & unity-game/) ---
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emory[Cc]aptures/
+/[Rr]ecordings/
+unity-game/[Ll]ibrary/
+unity-game/[Tt]emp/
+unity-game/[Oo]bj/
+unity-game/[Bb]uild/
+unity-game/[Bb]uilds/
+unity-game/[Ll]ogs/
+unity-game/[Uu]ser[Ss]ettings/
+unity-game/[Mm]emory[Cc]aptures/
+unity-game/[Rr]ecordings/
+unity-game/.utmp/
+unity-game/Assets/AssetStoreTools*
+unity-game/Assets/Plugins/Editor/JetBrains*
+
+# Unity generated IDE & compiler files
+.vs/
+.vscode/
+.idea/
+.gradle/
+.consulo/
+ExportedObj/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+sysinfo.txt
+crashlytics-build.properties
+
+# Local standalone build staging & packaged release binaries (distributed via GitHub Releases)
+releases/
+dist-builds/
+*.dmg
+*.app/
+*.apk
+*.aab
+*.unitypackage
+
+# --- Next.js / Web Platform (web/) ---
+web/node_modules/
+web/.next/
+web/out/
+web/build/
+web/.vercel/
+.vercel/
+web/.env
+web/.env*.local
+web/*.tsbuildinfo
+web/next-env.d.ts
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- Blender Temporary / Backup Files ---
+*.blend1
+*.blend2
+*.blend@
+*.tx
+
+# --- Python / Audio & Asset Pipelines ---
+**/__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.pytest_cache/
+
+# --- Motion Pipeline Large ML Weights / Caches ---
+motion-pipeline/checkpoints/
+motion-pipeline/weights/
+motion-pipeline/.cache/
+*.ckpt
+*.pth
+*.safetensors
+
