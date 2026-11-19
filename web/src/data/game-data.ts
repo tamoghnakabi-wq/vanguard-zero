@@ -53,8 +53,9 @@ export interface TechPillar {
 }
 
 export const HERO_MEDIA = {
-  backdrop: "/images/screenshots/hero-blacksite.svg",
-  alt: "VANGUARD ZERO — BLACKSITE-09 dusk tactical radar compound",
+  backdrop: "/images/screenshots/gameplay-vx47.webp",
+  preview: "/images/screenshots/arena-overview.webp",
+  alt: "VANGUARD ZERO — Live Unity 6 URP firefight in rain-swept BLACKSITE-09",
 };
 
 export const WEAPONS: WeaponSpec[] = [
@@ -254,44 +255,54 @@ export const TECH_PILLARS: TechPillar[] = [
 
 export const SCREENSHOTS: ScreenshotItem[] = [
   {
-    id: "courtyard-dusk",
-    title: "Central Courtyard — Dusk Rainfall",
+    id: "courtyard-vx47",
+    title: "Central Courtyard — VX-47 Firefight",
     sector: "SECTOR A1",
-    resolution: "1920×1080 URP",
+    resolution: "UNITY 6 URP",
     caption:
-      "Wet brutalist concrete, dual-LED floodlights, and atmospheric volumetric dusk fog across the BLACKSITE-09 center lane.",
-    src: "/images/screenshots/shot-courtyard.svg",
-    tag: "ENVIRONMENT",
-  },
-  {
-    id: "vx47-ads",
-    title: "VX-47 Holographic Sightline",
-    sector: "SECTOR B2",
-    resolution: "1920×1080 URP",
-    caption:
-      "First-person ADS perspective with illuminated reticle glass, tactical HUD compass, and live team scoreboard telemetry.",
-    src: "/images/screenshots/shot-combat.svg",
+      "Rain-swept dusk combat with the VX-47 holographic carbine, dynamic tactical HUD, radar minimap, and live ballistic tracers.",
+    src: "/images/screenshots/gameplay-vx47.webp",
     tag: "GAMEPLAY",
   },
   {
-    id: "server-bunker",
-    title: "Server Bunker — Telemetry Terminal",
-    sector: "SECTOR C3",
-    resolution: "1280×960 PBR",
+    id: "vx47-ads",
+    title: "Holographic ADS — Live Ballistic Exchange",
+    sector: "SECTOR B2",
+    resolution: "UNITY 6 URP",
     caption:
-      "Hard-surface blacksite server rack with emissive cyan indicator arrays, recessed keyboard bay, and brushed steel framing.",
-    src: "/images/screenshots/server-rack-asset.webp",
-    tag: "INTERIOR ASSET",
+      "First-person aim-down-sights through the VX-47 holographic optic with muzzle flash lighting and ejected brass casings.",
+    src: "/images/screenshots/gameplay-ads.webp",
+    tag: "ADS COMBAT",
   },
   {
-    id: "radar-spire",
-    title: "Radar Spire — Comms Array Centerpiece",
-    sector: "SECTOR B2",
-    resolution: "1280×960 PBR",
+    id: "m890-breacher",
+    title: "M890 Breacher — Close-Quarters Defense",
+    sector: "SECTOR C3",
+    resolution: "UNITY 6 URP",
     caption:
-      "Weathered lattice steel tower and rotating parabolic radar dish with glowing beacon anchoring the BLACKSITE-09 courtyard.",
-    src: "/images/screenshots/radar-spire-asset.webp",
-    tag: "HERO PROP",
+      "12-gauge M890 Tactical Shotgun with side-saddle shells and glowing tritium ghost-ring sights under incoming tracer fire.",
+    src: "/images/screenshots/gameplay-m890.webp",
+    tag: "SHOTGUN CQB",
+  },
+  {
+    id: "arena-overview",
+    title: "BLACKSITE-09 — Aerial Compound Overview",
+    sector: "FULL ARENA",
+    resolution: "UNITY 6 URP",
+    caption:
+      "Multi-level tactical arena featuring the Radar Spire centerpiece, glowing cyan Server Bunker, elevated steel catwalks, and dusk rainfall.",
+    src: "/images/screenshots/arena-overview.webp",
+    tag: "ENVIRONMENT",
+  },
+  {
+    id: "main-menu",
+    title: "Tactical Main Menu — Unity Relay Online",
+    sector: "COMMAND HUD",
+    resolution: "UNITY 6 URP",
+    caption:
+      "Live 3D BLACKSITE-09 dusk camera backdrop with Quick Match Relay matchmaking, Host Match, Join by Code, Server Browser, and Solo Skirmish.",
+    src: "/images/screenshots/main-menu.webp",
+    tag: "MULTIPLAYER UI",
   },
   {
     id: "tactical-operator",
@@ -299,19 +310,9 @@ export const SCREENSHOTS: ScreenshotItem[] = [
     sector: "ARSENAL STUDIO",
     resolution: "1600×900 PBR",
     caption:
-      "Armored special-ops operator with quad-NVG FAST helmet, glowing cyan/amber visor faction signifier, and 22-bone Humanoid rig.",
+      "Armored special-ops operator with quad-NVG FAST helmet, glowing cyan/amber visor faction signifier, and MotionBricks humanoid rig.",
     src: "/images/screenshots/tactical-operator.webp",
     tag: "CHARACTER",
-  },
-  {
-    id: "floodlight-tower",
-    title: "Tactical Dual-LED Floodlight Tower",
-    sector: "SECTOR A1",
-    resolution: "1280×960 PBR",
-    caption:
-      "Portable military stanchion floodlight casting warm dusk illumination across wet courtyard shipping containers and cover lanes.",
-    src: "/images/screenshots/floodlight-tower-asset.webp",
-    tag: "LIGHTING PROP",
   },
 ];
 

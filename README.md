@@ -34,7 +34,7 @@
 
 ## Download & Play
 
-Grab the latest standalone builds for **macOS** and **Windows** directly from **[GitHub Releases](https://github.com/tamoghnakabi-wq/vanguard-zero/releases/latest)** or the **VANGUARD ZERO Launch Portal**.
+Visit the live **[VANGUARD ZERO Launch Portal](https://vanguard-zero.vercel.app)** or grab the latest standalone builds for **macOS** and **Windows** directly from **[GitHub Releases](https://github.com/tamoghnakabi-wq/vanguard-zero/releases/latest)**.
 
 ### macOS (Apple Silicon / Universal)
 1. Download `VanguardZero-<version>-macOS-Universal.dmg` (or `.zip`) from [GitHub Releases](https://github.com/tamoghnakabi-wq/vanguard-zero/releases/latest).

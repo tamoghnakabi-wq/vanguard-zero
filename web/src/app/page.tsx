@@ -148,8 +148,8 @@ export default async function HomePage() {
                   <div className="relative aspect-video overflow-hidden rounded border border-slate-800 bg-slate-950">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={HERO_MEDIA.backdrop}
-                      alt="BLACKSITE-09 Live Sector Feed"
+                      src={HERO_MEDIA.preview}
+                      alt="BLACKSITE-09 Aerial Dusk Compound Feed"
                       className="h-full w-full object-cover"
                     />
                     <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between rounded border border-slate-800/90 bg-slate-950/85 px-3 py-1.5 font-mono text-[11px] backdrop-blur">
