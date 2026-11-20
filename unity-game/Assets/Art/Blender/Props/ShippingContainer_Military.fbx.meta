@@ -7,6 +7,21 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Arch_BrushedSteel
+    second: {fileID: 2100000, guid: 49dae26fe90f947438905e4ec9b867d3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Arch_CorrugatedSteel
+    second: {fileID: 2100000, guid: 49dae26fe90f947438905e4ec9b867d3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Arch_RustedSteel
+    second: {fileID: 2100000, guid: 49dae26fe90f947438905e4ec9b867d3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Container_OliveSteel
     second: {fileID: 2100000, guid: 18f423e0f089c4c01b393ee69a2bfcea, type: 2}
   - first:

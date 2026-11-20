@@ -18,13 +18,13 @@
         "name": "VX47_AssaultRifle",
         "fbx_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/exports/weapons/VX47_AssaultRifle.fbx",
         "blend_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/scenes/VX47_AssaultRifle.blend",
-        "file_size_bytes": 1109516,
-        "triangles": 19666,
-        "vertices": 10206,
+        "file_size_bytes": 1267340,
+        "triangles": 22598,
+        "vertices": 11646,
         "unity_bounds_meters": {
-          "width_x": 0.0614,
-          "height_y": 0.3267,
-          "length_z": 0.838
+          "width_x": 0.0635,
+          "height_y": 0.3233,
+          "length_z": 0.836
         },
         "unity_orientation": "+Z forward, +Y up, +X right, 1 unit = 1 meter",
         "pivot": "origin (0,0,0)",
@@ -46,13 +46,13 @@
           },
           {
             "name": "Receiver",
-            "triangles": 18802,
-            "vertices": 9754
+            "triangles": 21474,
+            "vertices": 11064
           },
           {
             "name": "Trigger",
-            "triangles": 20,
-            "vertices": 12
+            "triangles": 280,
+            "vertices": 142
           }
         ],
         "anchors_unity_xyz": {
@@ -63,8 +63,8 @@
           ],
           "LeftHandGrip": [
             0.0,
-            -0.036,
-            0.285
+            -0.032,
+            0.282
           ],
           "MagPivot": [
             0.0,
@@ -79,12 +79,12 @@
           "OpticCenter": [
             0.0,
             0.094,
-            0.058
+            0.056
           ],
           "RightHandGrip": [
             0.0,
-            -0.072,
-            -0.038
+            -0.068,
+            -0.036
           ]
         },
         "materials": [
@@ -130,7 +130,6 @@
         "renders": {
           "hero": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/weapons/VX47_AssaultRifle_hero.png",
           "left": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/weapons/VX47_AssaultRifle_left.png",
-          "right": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/weapons/VX47_AssaultRifle_right.png",
           "ads_rear": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/weapons/VX47_AssaultRifle_ads_rear.png"
         }
       },
@@ -400,11 +399,11 @@
         "name": "TacticalOperator",
         "fbx_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/exports/characters/TacticalOperator.fbx",
         "blend_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/scenes/TacticalOperator.blend",
-        "file_size_bytes": 686780,
-        "triangles": 11816,
-        "vertices": 6098,
+        "file_size_bytes": 1878332,
+        "triangles": 37360,
+        "vertices": 18856,
         "height_meters": 1.8,
-        "rest_pose": "T-Pose (Unity HumanBodyBones auto-map compatible, 22 bones)",
+        "rest_pose": "T-Pose (Subsurf Sculpted v2, EXACT 22-bone Unity HumanBodyBones MotionBricks contract)",
         "unity_orientation": "+Z forward, +Y up, +X right",
         "bones": [
           "Hips",
@@ -478,17 +477,18 @@
         "renders": {
           "hero": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/characters/TacticalOperator_hero.png",
           "front": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/characters/TacticalOperator_front.png",
-          "back": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/characters/TacticalOperator_back.png",
-          "upper_body": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/characters/TacticalOperator_upper_body.png"
+          "back": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/characters/TacticalOperator_back.png"
         }
       },
       "FP_TacticalArms": {
         "name": "FP_TacticalArms",
         "fbx_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/exports/characters/FP_TacticalArms.fbx",
         "blend_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/scenes/FP_TacticalArms.blend",
-        "file_size_bytes": 188620,
-        "triangles": 2872,
-        "vertices": 1480,
+        "file_size_bytes": 568012,
+        "triangles": 9124,
+        "vertices": 4604,
+        "rest_pose": "Tactical Two-Handed Rifle Grip aligned to weapon origin (0,0,0), +Z fwd / +Y up / +X right in Unity!",
+        "unity_attach_note": "Parent FP_TacticalArms directly to WeaponHolder at local position (0,0,0), rotation (0,0,0), scale (1,1,1)!",
         "bones": [
           "UpperChest",
           "LeftShoulder",
@@ -528,24 +528,17 @@
             "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/Operator/Operator_Metal_MetallicSmoothness.png",
             "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/Operator/Operator_Metal_AO.png"
           },
-          "Operator_VisorCyan": {
-            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/Operator/Operator_VisorCyan_Albedo.png",
-            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/Operator/Operator_VisorCyan_Normal.png",
-            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/Operator/Operator_VisorCyan_MetallicSmoothness.png",
-            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/Operator/Operator_VisorCyan_AO.png",
-            "emission": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/Operator/Operator_VisorCyan_Emission.png"
-          },
-          "Operator_VisorAmber": {
-            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/Operator/Operator_VisorAmber_Albedo.png",
-            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/Operator/Operator_VisorAmber_Normal.png",
-            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/Operator/Operator_VisorAmber_MetallicSmoothness.png",
-            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/Operator/Operator_VisorAmber_AO.png",
-            "emission": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/Operator/Operator_VisorAmber_Emission.png"
+          "FP_GPS_Screen": {
+            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/Operator/FP_GPS_Screen_Albedo.png",
+            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/Operator/FP_GPS_Screen_Normal.png",
+            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/Operator/FP_GPS_Screen_MetallicSmoothness.png",
+            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/Operator/FP_GPS_Screen_AO.png",
+            "emission": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/Operator/FP_GPS_Screen_Emission.png"
           }
         },
         "renders": {
-          "hero": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/characters/FP_TacticalArms_hero.png",
-          "top_fp": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/characters/FP_TacticalArms_top_fp.png"
+          "fps_hipfire": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/fps_viewmodel/FP_VX47_Hipfire.png",
+          "fps_ads": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/fps_viewmodel/FP_VX47_ADS.png"
         }
       }
     },
@@ -554,11 +547,11 @@
         "name": "ShippingContainer_Military",
         "fbx_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/exports/props/ShippingContainer_Military.fbx",
         "blend_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/scenes/ShippingContainer_Military.blend",
-        "file_size_bytes": 643468,
-        "triangles": 14000,
-        "vertices": 7264,
+        "file_size_bytes": 446012,
+        "triangles": 9572,
+        "vertices": 4968,
         "unity_bounds_meters": {
-          "width_x": 2.47,
+          "width_x": 2.46,
           "height_y": 2.59,
           "length_z": 6.1325
         },
@@ -567,38 +560,38 @@
         "submeshes": [
           {
             "name": "ShippingContainer_Mesh",
-            "triangles": 14000,
-            "vertices": 7264
+            "triangles": 9572,
+            "vertices": 4968
           }
         ],
         "anchors_unity_xyz": {},
         "materials": [
-          "Container_OliveSteel",
-          "Container_SteelHardware",
-          "Container_RubberSeal"
+          "Arch_CorrugatedSteel",
+          "Arch_RustedSteel",
+          "Arch_BrushedSteel"
         ],
         "textures": {
-          "Container_OliveSteel": {
-            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/ShippingContainer/Container_OliveSteel_Albedo.png",
-            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/ShippingContainer/Container_OliveSteel_Normal.png",
-            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/ShippingContainer/Container_OliveSteel_MetallicSmoothness.png",
-            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/ShippingContainer/Container_OliveSteel_AO.png"
+          "Arch_CorrugatedSteel": {
+            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_CorrugatedSteel/Metal_CorrugatedSteel_Albedo.png",
+            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_CorrugatedSteel/Metal_CorrugatedSteel_Normal.png",
+            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_CorrugatedSteel/Metal_CorrugatedSteel_MetallicSmoothness.png",
+            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_CorrugatedSteel/Metal_CorrugatedSteel_AO.png"
           },
-          "Container_SteelHardware": {
-            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/ShippingContainer/Container_SteelHardware_Albedo.png",
-            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/ShippingContainer/Container_SteelHardware_Normal.png",
-            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/ShippingContainer/Container_SteelHardware_MetallicSmoothness.png",
-            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/ShippingContainer/Container_SteelHardware_AO.png"
+          "Arch_RustedSteel": {
+            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_Albedo.png",
+            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_Normal.png",
+            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_MetallicSmoothness.png",
+            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_AO.png"
           },
-          "Container_RubberSeal": {
-            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/ShippingContainer/Container_RubberSeal_Albedo.png",
-            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/ShippingContainer/Container_RubberSeal_Normal.png",
-            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/ShippingContainer/Container_RubberSeal_MetallicSmoothness.png",
-            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/ShippingContainer/Container_RubberSeal_AO.png"
+          "Arch_BrushedSteel": {
+            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_Albedo.png",
+            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_Normal.png",
+            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_MetallicSmoothness.png",
+            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_AO.png"
           }
         },
         "renders": {
-          "hero": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/props/ShippingContainer_Military_hero.png"
+          "hero": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/architecture/ShippingContainer_Military_hero.png"
         }
       },
       "ConcreteBarrier_Jersey": {
@@ -913,6 +906,827 @@
         "renders": {
           "hero": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/props/SandbagWall_hero.png"
         }
+      }
+    },
+    "photogrammetry": {
+      "PG_SteelBarrel_01": {
+        "name": "PG_SteelBarrel_01",
+        "source": "Poly Haven CC0 (Barrel_01)",
+        "fbx_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/exports/photogrammetry/PG_SteelBarrel_01.fbx",
+        "blend_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/scenes/PG_SteelBarrel_01.blend",
+        "file_size_bytes": 1681628,
+        "triangles": 2682,
+        "unity_bounds_meters": {
+          "width_x": 0.563,
+          "height_y": 0.88,
+          "length_z": 0.563
+        },
+        "materials": [
+          "Barrel_01"
+        ],
+        "embedded_textures": true,
+        "textures": {
+          "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_SteelBarrel_01/PG_SteelBarrel_01_Albedo.png",
+          "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_SteelBarrel_01/PG_SteelBarrel_01_Normal.png",
+          "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_SteelBarrel_01/PG_SteelBarrel_01_MetallicSmoothness.png",
+          "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_SteelBarrel_01/PG_SteelBarrel_01_AO.png"
+        },
+        "renders": {
+          "hero": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/photogrammetry/PG_SteelBarrel_01_hero.png"
+        }
+      },
+      "PG_SteelBarrel_02": {
+        "name": "PG_SteelBarrel_02",
+        "source": "Poly Haven CC0 (barrel_03)",
+        "fbx_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/exports/photogrammetry/PG_SteelBarrel_02.fbx",
+        "blend_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/scenes/PG_SteelBarrel_02.blend",
+        "file_size_bytes": 1195180,
+        "triangles": 1473,
+        "unity_bounds_meters": {
+          "width_x": 0.634,
+          "height_y": 0.93,
+          "length_z": 0.639
+        },
+        "materials": [
+          "barrel_03"
+        ],
+        "embedded_textures": true,
+        "textures": {
+          "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_SteelBarrel_02/PG_SteelBarrel_02_Albedo.png",
+          "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_SteelBarrel_02/PG_SteelBarrel_02_Normal.png",
+          "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_SteelBarrel_02/PG_SteelBarrel_02_MetallicSmoothness.png",
+          "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_SteelBarrel_02/PG_SteelBarrel_02_AO.png"
+        },
+        "renders": {
+          "hero": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/photogrammetry/PG_SteelBarrel_02_hero.png"
+        }
+      },
+      "PG_ConcreteRoadBarrier": {
+        "name": "PG_ConcreteRoadBarrier",
+        "source": "Poly Haven CC0 (concrete_road_barrier)",
+        "fbx_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/exports/photogrammetry/PG_ConcreteRoadBarrier.fbx",
+        "blend_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/scenes/PG_ConcreteRoadBarrier.blend",
+        "file_size_bytes": 8079676,
+        "triangles": 13999,
+        "unity_bounds_meters": {
+          "width_x": 1.545,
+          "height_y": 0.831,
+          "length_z": 0.639
+        },
+        "materials": [
+          "concrete_road_barrier"
+        ],
+        "embedded_textures": true,
+        "textures": {
+          "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_ConcreteRoadBarrier/PG_ConcreteRoadBarrier_Albedo.png",
+          "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_ConcreteRoadBarrier/PG_ConcreteRoadBarrier_Normal.png",
+          "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_ConcreteRoadBarrier/PG_ConcreteRoadBarrier_MetallicSmoothness.png",
+          "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_ConcreteRoadBarrier/PG_ConcreteRoadBarrier_AO.png"
+        },
+        "renders": {
+          "hero": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/photogrammetry/PG_ConcreteRoadBarrier_hero.png"
+        }
+      },
+      "PG_WoodenCrate": {
+        "name": "PG_WoodenCrate",
+        "source": "Poly Haven CC0 (wooden_crate_01)",
+        "fbx_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/exports/photogrammetry/PG_WoodenCrate.fbx",
+        "blend_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/scenes/PG_WoodenCrate.blend",
+        "file_size_bytes": 5731164,
+        "triangles": 6576,
+        "unity_bounds_meters": {
+          "width_x": 0.825,
+          "height_y": 0.35,
+          "length_z": 0.409
+        },
+        "materials": [
+          "wooden_crate_01"
+        ],
+        "embedded_textures": true,
+        "textures": {
+          "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_WoodenCrate/PG_WoodenCrate_Albedo.png",
+          "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_WoodenCrate/PG_WoodenCrate_Normal.png",
+          "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_WoodenCrate/PG_WoodenCrate_MetallicSmoothness.png",
+          "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_WoodenCrate/PG_WoodenCrate_AO.png"
+        },
+        "renders": {
+          "hero": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/photogrammetry/PG_WoodenCrate_hero.png"
+        }
+      },
+      "PG_IndustrialPowerBox": {
+        "name": "PG_IndustrialPowerBox",
+        "source": "Poly Haven CC0 (power_box_01)",
+        "fbx_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/exports/photogrammetry/PG_IndustrialPowerBox.fbx",
+        "blend_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/scenes/PG_IndustrialPowerBox.blend",
+        "file_size_bytes": 5635740,
+        "triangles": 13998,
+        "unity_bounds_meters": {
+          "width_x": 0.463,
+          "height_y": 0.503,
+          "length_z": 0.402
+        },
+        "materials": [
+          "power_box_01"
+        ],
+        "embedded_textures": true,
+        "textures": {
+          "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_IndustrialPowerBox/PG_IndustrialPowerBox_Albedo.png",
+          "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_IndustrialPowerBox/PG_IndustrialPowerBox_Normal.png",
+          "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_IndustrialPowerBox/PG_IndustrialPowerBox_MetallicSmoothness.png",
+          "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_IndustrialPowerBox/PG_IndustrialPowerBox_AO.png"
+        },
+        "renders": {
+          "hero": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/photogrammetry/PG_IndustrialPowerBox_hero.png"
+        }
+      },
+      "PG_UtilityBox": {
+        "name": "PG_UtilityBox",
+        "source": "Poly Haven CC0 (utility_box_02)",
+        "fbx_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/exports/photogrammetry/PG_UtilityBox.fbx",
+        "blend_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/scenes/PG_UtilityBox.blend",
+        "file_size_bytes": 4693996,
+        "triangles": 6268,
+        "unity_bounds_meters": {
+          "width_x": 0.92,
+          "height_y": 1.12,
+          "length_z": 0.432
+        },
+        "materials": [
+          "utility_box_02"
+        ],
+        "embedded_textures": true,
+        "textures": {
+          "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_UtilityBox/PG_UtilityBox_Albedo.png",
+          "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_UtilityBox/PG_UtilityBox_Normal.png",
+          "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_UtilityBox/PG_UtilityBox_MetallicSmoothness.png",
+          "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_UtilityBox/PG_UtilityBox_AO.png"
+        },
+        "renders": {
+          "hero": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/photogrammetry/PG_UtilityBox_hero.png"
+        }
+      },
+      "PG_ExteriorHVAC": {
+        "name": "PG_ExteriorHVAC",
+        "source": "Poly Haven CC0 (exterior_aircon_unit)",
+        "fbx_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/exports/photogrammetry/PG_ExteriorHVAC.fbx",
+        "blend_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/scenes/PG_ExteriorHVAC.blend",
+        "file_size_bytes": 17480076,
+        "triangles": 14000,
+        "unity_bounds_meters": {
+          "width_x": 1.8,
+          "height_y": 0.928,
+          "length_z": 0.374
+        },
+        "materials": [
+          "exterior_aircon_unit_01",
+          "exterior_aircon_unit_02",
+          "exterior_aircon_unit_rusted_01",
+          "exterior_aircon_unit_rusted_02"
+        ],
+        "embedded_textures": true,
+        "textures": {
+          "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_ExteriorHVAC/PG_ExteriorHVAC_Albedo.png",
+          "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_ExteriorHVAC/PG_ExteriorHVAC_Normal.png",
+          "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_ExteriorHVAC/PG_ExteriorHVAC_MetallicSmoothness.png",
+          "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_ExteriorHVAC/PG_ExteriorHVAC_AO.png",
+          "extra_maps": [
+            "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_ExteriorHVAC/exterior_aircon_unit_01_nor_gl_2k.jpg",
+            "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_ExteriorHVAC/exterior_aircon_unit_rusted_02_nor_gl_2k.jpg",
+            "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_ExteriorHVAC/exterior_aircon_unit_rusted_01_arm_2k.jpg",
+            "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_ExteriorHVAC/exterior_aircon_unit_rusted_01_nor_gl_2k.jpg",
+            "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_ExteriorHVAC/exterior_aircon_unit_rusted_02_arm_2k.jpg",
+            "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_ExteriorHVAC/exterior_aircon_unit_01_diff_2k.jpg",
+            "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_ExteriorHVAC/exterior_aircon_unit_01_opacity_2k.jpg",
+            "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_ExteriorHVAC/exterior_aircon_unit_rusted_02_opacity_2k.jpg",
+            "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_ExteriorHVAC/exterior_aircon_unit_01_arm_2k.jpg"
+          ]
+        },
+        "renders": {
+          "hero": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/photogrammetry/PG_ExteriorHVAC_hero.png"
+        }
+      },
+      "PG_SecurityCamera": {
+        "name": "PG_SecurityCamera",
+        "source": "Poly Haven CC0 (security_camera_01)",
+        "fbx_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/exports/photogrammetry/PG_SecurityCamera.fbx",
+        "blend_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/scenes/PG_SecurityCamera.blend",
+        "file_size_bytes": 3828940,
+        "triangles": 13571,
+        "unity_bounds_meters": {
+          "width_x": 0.17,
+          "height_y": 0.286,
+          "length_z": 0.554
+        },
+        "materials": [
+          "security_camera_01",
+          "security_camera_01_glass"
+        ],
+        "embedded_textures": true,
+        "textures": {
+          "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_SecurityCamera/PG_SecurityCamera_Albedo.png",
+          "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_SecurityCamera/PG_SecurityCamera_Normal.png",
+          "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_SecurityCamera/PG_SecurityCamera_MetallicSmoothness.png",
+          "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_SecurityCamera/PG_SecurityCamera_AO.png"
+        },
+        "renders": {
+          "hero": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/photogrammetry/PG_SecurityCamera_hero.png"
+        }
+      },
+      "PG_ChainlinkFence": {
+        "name": "PG_ChainlinkFence",
+        "source": "Poly Haven CC0 (modular_chainlink_fence)",
+        "fbx_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/exports/photogrammetry/PG_ChainlinkFence.fbx",
+        "blend_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/scenes/PG_ChainlinkFence.blend",
+        "file_size_bytes": 9300428,
+        "triangles": 13990,
+        "unity_bounds_meters": {
+          "width_x": 8.121,
+          "height_y": 2.525,
+          "length_z": 2.16
+        },
+        "materials": [
+          "modular_chainlink_fence_wire",
+          "modular_chainlink_fence_posts"
+        ],
+        "embedded_textures": true,
+        "textures": {
+          "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_ChainlinkFence/PG_ChainlinkFence_Albedo.png",
+          "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_ChainlinkFence/PG_ChainlinkFence_Normal.png",
+          "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_ChainlinkFence/PG_ChainlinkFence_MetallicSmoothness.png",
+          "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_ChainlinkFence/PG_ChainlinkFence_AO.png",
+          "extra_maps": [
+            "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_ChainlinkFence/modular_chainlink_fence_wire_diff_2k.jpg",
+            "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_ChainlinkFence/modular_chainlink_fence_wire_nor_gl_2k.jpg",
+            "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_ChainlinkFence/modular_chainlink_fence_wire_arm_2k.jpg"
+          ]
+        },
+        "renders": {
+          "hero": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/photogrammetry/PG_ChainlinkFence_hero.png"
+        }
+      },
+      "PG_IndustrialLamp": {
+        "name": "PG_IndustrialLamp",
+        "source": "Poly Haven CC0 (street_lamp_01)",
+        "fbx_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/exports/photogrammetry/PG_IndustrialLamp.fbx",
+        "blend_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/scenes/PG_IndustrialLamp.blend",
+        "file_size_bytes": 3888476,
+        "triangles": 13999,
+        "unity_bounds_meters": {
+          "width_x": 0.704,
+          "height_y": 3.871,
+          "length_z": 0.387
+        },
+        "materials": [
+          "street_lamp_01",
+          "street_lamp_01_glass",
+          "street_lamp_01_bulb"
+        ],
+        "embedded_textures": true,
+        "textures": {
+          "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_IndustrialLamp/PG_IndustrialLamp_Albedo.png",
+          "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_IndustrialLamp/PG_IndustrialLamp_Normal.png",
+          "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_IndustrialLamp/PG_IndustrialLamp_MetallicSmoothness.png",
+          "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_IndustrialLamp/PG_IndustrialLamp_AO.png"
+        },
+        "renders": {
+          "hero": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/photogrammetry/PG_IndustrialLamp_hero.png"
+        }
+      },
+      "PG_AlpineBoulder": {
+        "name": "PG_AlpineBoulder",
+        "source": "Poly Haven CC0 (boulder_01)",
+        "fbx_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/exports/photogrammetry/PG_AlpineBoulder.fbx",
+        "blend_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/scenes/PG_AlpineBoulder.blend",
+        "file_size_bytes": 12288732,
+        "triangles": 26159,
+        "unity_bounds_meters": {
+          "width_x": 1.275,
+          "height_y": 1.01,
+          "length_z": 1.838
+        },
+        "materials": [
+          "boulder_01"
+        ],
+        "embedded_textures": true,
+        "textures": {
+          "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_AlpineBoulder/PG_AlpineBoulder_Albedo.png",
+          "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_AlpineBoulder/PG_AlpineBoulder_Normal.png",
+          "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_AlpineBoulder/PG_AlpineBoulder_MetallicSmoothness.png",
+          "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_AlpineBoulder/PG_AlpineBoulder_AO.png"
+        },
+        "renders": {
+          "hero": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/photogrammetry/PG_AlpineBoulder_hero.png"
+        }
+      },
+      "PG_AlpineFirTree": {
+        "name": "PG_AlpineFirTree",
+        "source": "Poly Haven CC0 (fir_tree_01)",
+        "fbx_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/exports/photogrammetry/PG_AlpineFirTree.fbx",
+        "blend_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/scenes/PG_AlpineFirTree.blend",
+        "file_size_bytes": 21180492,
+        "triangles": 13999,
+        "unity_bounds_meters": {
+          "width_x": 5.61,
+          "height_y": 14.051,
+          "length_z": 6.052
+        },
+        "materials": [
+          "fir_tree_01_bark",
+          "fir_tree_01_trunk_a",
+          "fir_tree_01_twig",
+          "fir_tree_01_dead_branches",
+          "fir_tree_01_trunk_b",
+          "fir_tree_01_trunk_c"
+        ],
+        "embedded_textures": true,
+        "textures": {
+          "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_AlpineFirTree/PG_AlpineFirTree_Albedo.png",
+          "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_AlpineFirTree/PG_AlpineFirTree_Normal.png",
+          "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_AlpineFirTree/PG_AlpineFirTree_MetallicSmoothness.png",
+          "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_AlpineFirTree/PG_AlpineFirTree_AO.png",
+          "extra_maps": [
+            "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_AlpineFirTree/fir_tree_01_bark_arm_2k.jpg",
+            "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_AlpineFirTree/fir_tree_01_trunk_b_nor_gl_2k.jpg",
+            "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_AlpineFirTree/fir_tree_01_bark_nor_gl_2k.jpg",
+            "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_AlpineFirTree/fir_tree_01_trunk_a_nor_gl_2k.jpg",
+            "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_AlpineFirTree/fir_tree_01_twig_arm_2k.jpg",
+            "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_AlpineFirTree/fir_tree_01_trunk_b_diff_2k.jpg",
+            "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_AlpineFirTree/fir_tree_01_trunk_a_diff_2k.jpg",
+            "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_AlpineFirTree/fir_tree_01_trunk_b_arm_2k.jpg",
+            "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/photogrammetry/PG_AlpineFirTree/fir_tree_01_bark_diff_2k.jpg"
+          ]
+        },
+        "renders": {
+          "hero": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/photogrammetry/PG_AlpineFirTree_hero.png"
+        }
+      }
+    },
+    "architecture": {
+      "Wall_BlastSection": {
+        "name": "Wall_BlastSection",
+        "fbx_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/exports/architecture/Wall_BlastSection.fbx",
+        "blend_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/scenes/Wall_BlastSection.blend",
+        "file_size_bytes": 149228,
+        "triangles": 2548,
+        "vertices": 1344,
+        "unity_bounds_meters": {
+          "width_x": 6.04,
+          "height_y": 4.6348,
+          "length_z": 1.1978
+        },
+        "unity_orientation": "+Z forward, +Y up, +X right, 1 unit = 1 meter",
+        "pivot": "origin (0,0,0)",
+        "submeshes": [
+          {
+            "name": "Wall_BlastSection_Mesh",
+            "triangles": 2548,
+            "vertices": 1344
+          }
+        ],
+        "anchors_unity_xyz": {},
+        "materials": [
+          "Arch_ConcreteBrutalist",
+          "Arch_RustedSteel",
+          "Arch_BrushedSteel"
+        ],
+        "textures": {
+          "Arch_ConcreteBrutalist": {
+            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Concrete_PouredBrutalist/Concrete_PouredBrutalist_Albedo.png",
+            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Concrete_PouredBrutalist/Concrete_PouredBrutalist_Normal.png",
+            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Concrete_PouredBrutalist/Concrete_PouredBrutalist_MetallicSmoothness.png",
+            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Concrete_PouredBrutalist/Concrete_PouredBrutalist_AO.png"
+          },
+          "Arch_RustedSteel": {
+            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_Albedo.png",
+            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_Normal.png",
+            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_MetallicSmoothness.png",
+            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_AO.png"
+          },
+          "Arch_BrushedSteel": {
+            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_Albedo.png",
+            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_Normal.png",
+            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_MetallicSmoothness.png",
+            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_AO.png"
+          }
+        },
+        "renders": {
+          "hero": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/architecture/Wall_BlastSection_hero.png"
+        }
+      },
+      "Bunker_ModularFacade": {
+        "name": "Bunker_ModularFacade",
+        "fbx_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/exports/architecture/Bunker_ModularFacade.fbx",
+        "blend_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/scenes/Bunker_ModularFacade.blend",
+        "file_size_bytes": 234012,
+        "triangles": 4584,
+        "vertices": 2384,
+        "unity_bounds_meters": {
+          "width_x": 8.3,
+          "height_y": 4.81,
+          "length_z": 1.905
+        },
+        "unity_orientation": "+Z forward, +Y up, +X right, 1 unit = 1 meter",
+        "pivot": "origin (0,0,0)",
+        "submeshes": [
+          {
+            "name": "Bunker_ModularFacade_Mesh",
+            "triangles": 4584,
+            "vertices": 2384
+          }
+        ],
+        "anchors_unity_xyz": {},
+        "materials": [
+          "Arch_ConcreteBrutalist",
+          "Arch_RustedSteel",
+          "Arch_BrushedSteel",
+          "Arch_BulkheadAmber",
+          "Arch_KeycardCyan"
+        ],
+        "textures": {
+          "Arch_ConcreteBrutalist": {
+            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Concrete_PouredBrutalist/Concrete_PouredBrutalist_Albedo.png",
+            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Concrete_PouredBrutalist/Concrete_PouredBrutalist_Normal.png",
+            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Concrete_PouredBrutalist/Concrete_PouredBrutalist_MetallicSmoothness.png",
+            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Concrete_PouredBrutalist/Concrete_PouredBrutalist_AO.png"
+          },
+          "Arch_RustedSteel": {
+            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_Albedo.png",
+            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_Normal.png",
+            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_MetallicSmoothness.png",
+            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_AO.png"
+          },
+          "Arch_BrushedSteel": {
+            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_Albedo.png",
+            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_Normal.png",
+            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_MetallicSmoothness.png",
+            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_AO.png"
+          },
+          "Arch_BulkheadAmber": {
+            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/ArchEmissive/Arch_BulkheadAmber_Albedo.png",
+            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/ArchEmissive/Arch_BulkheadAmber_Normal.png",
+            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/ArchEmissive/Arch_BulkheadAmber_MetallicSmoothness.png",
+            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/ArchEmissive/Arch_BulkheadAmber_AO.png",
+            "emission": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/ArchEmissive/Arch_BulkheadAmber_Emission.png"
+          },
+          "Arch_KeycardCyan": {
+            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/ArchEmissive/Arch_KeycardCyan_Albedo.png",
+            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/ArchEmissive/Arch_KeycardCyan_Normal.png",
+            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/ArchEmissive/Arch_KeycardCyan_MetallicSmoothness.png",
+            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/ArchEmissive/Arch_KeycardCyan_AO.png",
+            "emission": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/ArchEmissive/Arch_KeycardCyan_Emission.png"
+          }
+        },
+        "renders": {
+          "hero": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/architecture/Bunker_ModularFacade_hero.png"
+        }
+      },
+      "Catwalk_Section": {
+        "name": "Catwalk_Section",
+        "fbx_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/exports/architecture/Catwalk_Section.fbx",
+        "blend_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/scenes/Catwalk_Section.blend",
+        "file_size_bytes": 152908,
+        "triangles": 2904,
+        "vertices": 1520,
+        "unity_bounds_meters": {
+          "width_x": 1.82,
+          "height_y": 1.477,
+          "length_z": 4.0
+        },
+        "unity_orientation": "+Z forward, +Y up, +X right, 1 unit = 1 meter",
+        "pivot": "origin (0,0,0)",
+        "submeshes": [
+          {
+            "name": "Catwalk_Section_Mesh",
+            "triangles": 2904,
+            "vertices": 1520
+          }
+        ],
+        "anchors_unity_xyz": {},
+        "materials": [
+          "Arch_BrushedSteel",
+          "Arch_RustedSteel"
+        ],
+        "textures": {
+          "Arch_RustedSteel": {
+            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_Albedo.png",
+            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_Normal.png",
+            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_MetallicSmoothness.png",
+            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_AO.png"
+          },
+          "Arch_BrushedSteel": {
+            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_Albedo.png",
+            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_Normal.png",
+            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_MetallicSmoothness.png",
+            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_AO.png"
+          }
+        },
+        "renders": {
+          "hero": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/architecture/Catwalk_Section_hero.png"
+        }
+      },
+      "Catwalk_Stairs": {
+        "name": "Catwalk_Stairs",
+        "fbx_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/exports/architecture/Catwalk_Stairs.fbx",
+        "blend_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/scenes/Catwalk_Stairs.blend",
+        "file_size_bytes": 119628,
+        "triangles": 2056,
+        "vertices": 1088,
+        "unity_bounds_meters": {
+          "width_x": 1.6759,
+          "height_y": 4.6386,
+          "length_z": 4.3126
+        },
+        "unity_orientation": "+Z forward, +Y up, +X right, 1 unit = 1 meter",
+        "pivot": "origin (0,0,0)",
+        "submeshes": [
+          {
+            "name": "Catwalk_Stairs_Mesh",
+            "triangles": 2056,
+            "vertices": 1088
+          }
+        ],
+        "anchors_unity_xyz": {},
+        "materials": [
+          "Arch_BrushedSteel",
+          "Arch_RustedSteel"
+        ],
+        "textures": {
+          "Arch_RustedSteel": {
+            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_Albedo.png",
+            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_Normal.png",
+            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_MetallicSmoothness.png",
+            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_AO.png"
+          },
+          "Arch_BrushedSteel": {
+            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_Albedo.png",
+            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_Normal.png",
+            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_MetallicSmoothness.png",
+            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_AO.png"
+          }
+        },
+        "renders": {
+          "hero": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/architecture/Catwalk_Stairs_hero.png"
+        }
+      },
+      "Fence_SecuritySection": {
+        "name": "Fence_SecuritySection",
+        "fbx_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/exports/architecture/Fence_SecuritySection.fbx",
+        "blend_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/scenes/Fence_SecuritySection.blend",
+        "file_size_bytes": 72236,
+        "triangles": 1336,
+        "vertices": 776,
+        "unity_bounds_meters": {
+          "width_x": 4.0,
+          "height_y": 3.2948,
+          "length_z": 0.7926
+        },
+        "unity_orientation": "+Z forward, +Y up, +X right, 1 unit = 1 meter",
+        "pivot": "origin (0,0,0)",
+        "submeshes": [
+          {
+            "name": "Fence_SecuritySection_Mesh",
+            "triangles": 1336,
+            "vertices": 776
+          }
+        ],
+        "anchors_unity_xyz": {},
+        "materials": [
+          "Arch_ConcreteBrutalist",
+          "Arch_RustedSteel",
+          "Arch_BrushedSteel"
+        ],
+        "textures": {
+          "Arch_ConcreteBrutalist": {
+            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Concrete_PouredBrutalist/Concrete_PouredBrutalist_Albedo.png",
+            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Concrete_PouredBrutalist/Concrete_PouredBrutalist_Normal.png",
+            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Concrete_PouredBrutalist/Concrete_PouredBrutalist_MetallicSmoothness.png",
+            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Concrete_PouredBrutalist/Concrete_PouredBrutalist_AO.png"
+          },
+          "Arch_RustedSteel": {
+            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_Albedo.png",
+            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_Normal.png",
+            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_MetallicSmoothness.png",
+            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_AO.png"
+          },
+          "Arch_BrushedSteel": {
+            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_Albedo.png",
+            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_Normal.png",
+            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_MetallicSmoothness.png",
+            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_AO.png"
+          }
+        },
+        "renders": {
+          "hero": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/architecture/Fence_SecuritySection_hero.png"
+        }
+      },
+      "Watchtower": {
+        "name": "Watchtower",
+        "fbx_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/exports/architecture/Watchtower.fbx",
+        "blend_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/scenes/Watchtower.blend",
+        "file_size_bytes": 187612,
+        "triangles": 3252,
+        "vertices": 1748,
+        "unity_bounds_meters": {
+          "width_x": 4.25,
+          "height_y": 8.76,
+          "length_z": 4.2466
+        },
+        "unity_orientation": "+Z forward, +Y up, +X right, 1 unit = 1 meter",
+        "pivot": "origin (0,0,0)",
+        "submeshes": [
+          {
+            "name": "Watchtower_Mesh",
+            "triangles": 3252,
+            "vertices": 1748
+          }
+        ],
+        "anchors_unity_xyz": {},
+        "materials": [
+          "Arch_ConcreteBrutalist",
+          "Arch_RustedSteel",
+          "Arch_BrushedSteel",
+          "Arch_CorrugatedSteel",
+          "Arch_BulkheadAmber"
+        ],
+        "textures": {
+          "Arch_ConcreteBrutalist": {
+            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Concrete_PouredBrutalist/Concrete_PouredBrutalist_Albedo.png",
+            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Concrete_PouredBrutalist/Concrete_PouredBrutalist_Normal.png",
+            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Concrete_PouredBrutalist/Concrete_PouredBrutalist_MetallicSmoothness.png",
+            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Concrete_PouredBrutalist/Concrete_PouredBrutalist_AO.png"
+          },
+          "Arch_CorrugatedSteel": {
+            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_CorrugatedSteel/Metal_CorrugatedSteel_Albedo.png",
+            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_CorrugatedSteel/Metal_CorrugatedSteel_Normal.png",
+            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_CorrugatedSteel/Metal_CorrugatedSteel_MetallicSmoothness.png",
+            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_CorrugatedSteel/Metal_CorrugatedSteel_AO.png"
+          },
+          "Arch_RustedSteel": {
+            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_Albedo.png",
+            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_Normal.png",
+            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_MetallicSmoothness.png",
+            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_AO.png"
+          },
+          "Arch_BrushedSteel": {
+            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_Albedo.png",
+            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_Normal.png",
+            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_MetallicSmoothness.png",
+            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_AO.png"
+          },
+          "Arch_BulkheadAmber": {
+            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/ArchEmissive/Arch_BulkheadAmber_Albedo.png",
+            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/ArchEmissive/Arch_BulkheadAmber_Normal.png",
+            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/ArchEmissive/Arch_BulkheadAmber_MetallicSmoothness.png",
+            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/ArchEmissive/Arch_BulkheadAmber_AO.png",
+            "emission": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/textures/ArchEmissive/Arch_BulkheadAmber_Emission.png"
+          }
+        },
+        "renders": {
+          "hero": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/architecture/Watchtower_hero.png"
+        }
+      },
+      "Rooftop_HVAC": {
+        "name": "Rooftop_HVAC",
+        "fbx_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/exports/architecture/Rooftop_HVAC.fbx",
+        "blend_path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/scenes/Rooftop_HVAC.blend",
+        "file_size_bytes": 384364,
+        "triangles": 6168,
+        "vertices": 3136,
+        "unity_bounds_meters": {
+          "width_x": 3.145,
+          "height_y": 1.59,
+          "length_z": 1.7341
+        },
+        "unity_orientation": "+Z forward, +Y up, +X right, 1 unit = 1 meter",
+        "pivot": "origin (0,0,0)",
+        "submeshes": [
+          {
+            "name": "Rooftop_HVAC_Mesh",
+            "triangles": 6168,
+            "vertices": 3136
+          }
+        ],
+        "anchors_unity_xyz": {},
+        "materials": [
+          "Arch_RustedSteel",
+          "Arch_BrushedSteel",
+          "Arch_CorrugatedSteel"
+        ],
+        "textures": {
+          "Arch_CorrugatedSteel": {
+            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_CorrugatedSteel/Metal_CorrugatedSteel_Albedo.png",
+            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_CorrugatedSteel/Metal_CorrugatedSteel_Normal.png",
+            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_CorrugatedSteel/Metal_CorrugatedSteel_MetallicSmoothness.png",
+            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_CorrugatedSteel/Metal_CorrugatedSteel_AO.png"
+          },
+          "Arch_RustedSteel": {
+            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_Albedo.png",
+            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_Normal.png",
+            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_MetallicSmoothness.png",
+            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_AO.png"
+          },
+          "Arch_BrushedSteel": {
+            "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_Albedo.png",
+            "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_Normal.png",
+            "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_MetallicSmoothness.png",
+            "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_AO.png"
+          }
+        },
+        "renders": {
+          "hero": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/renders/architecture/Rooftop_HVAC_hero.png"
+        }
+      }
+    }
+  },
+  "v2_photorealism": {
+    "hdris": {
+      "evening_road_01_puresky": {
+        "path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/hdri/evening_road_01_puresky_4k.hdr",
+        "resolution": "4k",
+        "format": "hdr",
+        "file_size_bytes": 18692813,
+        "source": "Poly Haven CC0 (evening_road_01_puresky)"
+      },
+      "belfast_sunset_puresky": {
+        "path": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/hdri/belfast_sunset_puresky_4k.hdr",
+        "resolution": "4k",
+        "format": "hdr",
+        "file_size_bytes": 17420114,
+        "source": "Poly Haven CC0 (belfast_sunset_puresky)"
+      }
+    },
+    "pbr_scans": {
+      "Asphalt_Weathered": {
+        "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Asphalt_Weathered/Asphalt_Weathered_Albedo.png",
+        "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Asphalt_Weathered/Asphalt_Weathered_Normal.png",
+        "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Asphalt_Weathered/Asphalt_Weathered_MetallicSmoothness.png",
+        "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Asphalt_Weathered/Asphalt_Weathered_AO.png",
+        "source": "Poly Haven CC0 (asphalt_02)",
+        "resolution": "2048x2048"
+      },
+      "Concrete_PouredBrutalist": {
+        "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Concrete_PouredBrutalist/Concrete_PouredBrutalist_Albedo.png",
+        "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Concrete_PouredBrutalist/Concrete_PouredBrutalist_Normal.png",
+        "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Concrete_PouredBrutalist/Concrete_PouredBrutalist_MetallicSmoothness.png",
+        "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Concrete_PouredBrutalist/Concrete_PouredBrutalist_AO.png",
+        "source": "Poly Haven CC0 (concrete_wall_007)",
+        "resolution": "2048x2048"
+      },
+      "Concrete_FloorWorn": {
+        "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Concrete_FloorWorn/Concrete_FloorWorn_Albedo.png",
+        "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Concrete_FloorWorn/Concrete_FloorWorn_Normal.png",
+        "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Concrete_FloorWorn/Concrete_FloorWorn_MetallicSmoothness.png",
+        "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Concrete_FloorWorn/Concrete_FloorWorn_AO.png",
+        "source": "Poly Haven CC0 (concrete_floor_worn_001)",
+        "resolution": "2048x2048"
+      },
+      "Metal_CorrugatedSteel": {
+        "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_CorrugatedSteel/Metal_CorrugatedSteel_Albedo.png",
+        "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_CorrugatedSteel/Metal_CorrugatedSteel_Normal.png",
+        "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_CorrugatedSteel/Metal_CorrugatedSteel_MetallicSmoothness.png",
+        "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_CorrugatedSteel/Metal_CorrugatedSteel_AO.png",
+        "source": "Poly Haven CC0 (corrugated_iron)",
+        "resolution": "2048x2048"
+      },
+      "Metal_RustedStructural": {
+        "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_Albedo.png",
+        "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_Normal.png",
+        "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_MetallicSmoothness.png",
+        "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_RustedStructural/Metal_RustedStructural_AO.png",
+        "source": "Poly Haven CC0 (rusty_metal_02)",
+        "resolution": "2048x2048"
+      },
+      "Metal_BrushedGunmetal": {
+        "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_Albedo.png",
+        "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_Normal.png",
+        "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_MetallicSmoothness.png",
+        "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Metal_BrushedGunmetal/Metal_BrushedGunmetal_AO.png",
+        "source": "Poly Haven CC0 (metal_plate)",
+        "resolution": "2048x2048"
+      },
+      "Terrain_AlpineCliffRock": {
+        "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Terrain_AlpineCliffRock/Terrain_AlpineCliffRock_Albedo.png",
+        "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Terrain_AlpineCliffRock/Terrain_AlpineCliffRock_Normal.png",
+        "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Terrain_AlpineCliffRock/Terrain_AlpineCliffRock_MetallicSmoothness.png",
+        "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Terrain_AlpineCliffRock/Terrain_AlpineCliffRock_AO.png",
+        "source": "Poly Haven CC0 (rock_face_03)",
+        "resolution": "2048x2048"
+      },
+      "Terrain_WetAlpineGravel": {
+        "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Terrain_WetAlpineGravel/Terrain_WetAlpineGravel_Albedo.png",
+        "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Terrain_WetAlpineGravel/Terrain_WetAlpineGravel_Normal.png",
+        "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Terrain_WetAlpineGravel/Terrain_WetAlpineGravel_MetallicSmoothness.png",
+        "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Terrain_WetAlpineGravel/Terrain_WetAlpineGravel_AO.png",
+        "source": "Poly Haven CC0 (aerial_rocks_04)",
+        "resolution": "2048x2048"
+      },
+      "Fabric_TacticalRipstop": {
+        "albedo": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Fabric_TacticalRipstop/Fabric_TacticalRipstop_Albedo.png",
+        "normal": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Fabric_TacticalRipstop/Fabric_TacticalRipstop_Normal.png",
+        "metallic_smoothness": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Fabric_TacticalRipstop/Fabric_TacticalRipstop_MetallicSmoothness.png",
+        "ao": "/Users/tamoghnakabi/.gemini/antigravity/scratch/vanguard-zero/blender-assets/pbr_scans/Fabric_TacticalRipstop/Fabric_TacticalRipstop_AO.png",
+        "source": "Poly Haven CC0 (denim_fabric)",
+        "resolution": "2048x2048"
       }
     }
   }

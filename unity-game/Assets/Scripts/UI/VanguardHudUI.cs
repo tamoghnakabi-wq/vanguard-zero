@@ -199,10 +199,11 @@ namespace VanguardZero.UI
             _canvas = VanguardUiFactory.CreateHudCanvas("VanguardHudCanvas", 5);
             Transform root = _canvas.transform;
 
-            // Damage flash overlay (non-blocking)
+            // Radial perimeter damage vignette overlay (transparent center, organic blood-red edge glow)
             var dmgRt = VanguardUiFactory.CreateFullStretch("DamageVignette", root);
             _damageVignette = dmgRt.gameObject.AddComponent<UnityEngine.UI.Image>();
-            _damageVignette.sprite = VanguardUiFactory.SolidSprite;
+            var vigSprite = Resources.Load<Sprite>("VFX/T_DamageVignette");
+            _damageVignette.sprite = vigSprite != null ? vigSprite : VanguardUiFactory.SolidSprite;
             _damageVignette.color = VanguardPalette.WithAlpha(VanguardPalette.AccentCrimson, 0f);
             _damageVignette.raycastTarget = false;
 

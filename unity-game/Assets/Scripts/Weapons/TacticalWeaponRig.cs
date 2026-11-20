@@ -20,13 +20,14 @@ namespace VanguardZero.Weapons
         [SerializeField] private Transform[] magazines = new Transform[3];
 
         [Header("Pose Offsets")]
-        [SerializeField] private Vector3 hipOffset = new Vector3(0.21f, -0.19f, 0.42f);
-        [SerializeField] private Vector3 adsOffsetRifle = new Vector3(0.0f, -0.105f, 0.34f);
-        [SerializeField] private Vector3 adsOffsetShotgun = new Vector3(0.0f, -0.092f, 0.36f);
-        [SerializeField] private Vector3 adsOffsetPistol = new Vector3(0.0f, -0.088f, 0.38f);
-        [SerializeField] private Vector3 sprintOffset = new Vector3(0.12f, -0.24f, 0.36f);
+        [SerializeField] private Vector3 hipOffset = new Vector3(0.19f, -0.15f, 0.24f);
+        [SerializeField] private Vector3 adsOffsetRifle = new Vector3(0.0f, -0.094f, 0.13f);
+        [SerializeField] private Vector3 adsOffsetShotgun = new Vector3(0.0f, -0.072f, 0.16f);
+        [SerializeField] private Vector3 adsOffsetPistol = new Vector3(0.0f, -0.064f, 0.24f);
+        [SerializeField] private Vector3 sprintOffset = new Vector3(0.10f, -0.21f, 0.18f);
         [SerializeField] private Vector3 sprintEuler = new Vector3(14f, -34f, 18f);
 
+        private Transform _fpArmsRoot;
         private WeaponId _activeWeapon = WeaponId.VX47_AssaultRifle;
         private float _adsBlend;
         private float _sprintBlend;
@@ -50,6 +51,13 @@ namespace VanguardZero.Weapons
 
         private void Awake()
         {
+            // Enforce v2.0 FPS viewmodel offsets: gloved Crye sleeves + wrist GPS visibly grip weapon in hipfire, clean ADS
+            hipOffset = new Vector3(0.19f, -0.15f, 0.24f);
+            adsOffsetRifle = new Vector3(0.0f, -0.094f, 0.13f);
+            adsOffsetShotgun = new Vector3(0.0f, -0.072f, 0.16f);
+            adsOffsetPistol = new Vector3(0.0f, -0.064f, 0.24f);
+            sprintOffset = new Vector3(0.10f, -0.21f, 0.18f);
+
             AutoDiscoverWeaponParts();
             EnsureMuzzleLight();
             SetActiveWeaponModel(_activeWeapon);
@@ -81,6 +89,8 @@ namespace VanguardZero.Weapons
 
         private void EnsureMuzzleLight()
         {
+            _fpArmsRoot = transform.Find("FP_TacticalArms");
+
             var lightGo = transform.Find("MuzzleFlashLight");
             if (lightGo == null)
             {
@@ -90,7 +100,7 @@ namespace VanguardZero.Weapons
                 _muzzleLight = go.AddComponent<Light>();
                 _muzzleLight.type = LightType.Point;
                 _muzzleLight.color = VanguardPalette.AccentAmber;
-                _muzzleLight.range = 8.5f;
+                _muzzleLight.range = 7.5f;
                 _muzzleLight.intensity = 0f;
                 _muzzleLight.shadows = LightShadows.None;
             }
@@ -100,24 +110,30 @@ namespace VanguardZero.Weapons
             }
 
             var flashMesh = transform.Find("MuzzleFlashStar");
-            if (flashMesh == null)
+            if (flashMesh != null) Destroy(flashMesh.gameObject);
+
+            // Crossed 2-plane transparent additive star muzzle flash using alpha-feathered PNG sprite (ZERO square edges!)
+            var starRoot = new GameObject("MuzzleFlashStar");
+            starRoot.transform.SetParent(transform, false);
+            var flashTex = Resources.Load<Texture2D>("VFX/T_MuzzleFlash_Star");
+            var shader = Shader.Find("Universal Render Pipeline/Particles/Unlit") ?? Shader.Find("Sprites/Default");
+            var mat = VanguardVfxManager.CreateTransparentParticleMat(shader, flashTex, additive: true);
+            mat.SetColor("_BaseColor", new Color(1.0f, 0.86f, 0.56f, 1.0f) * 1.9f);
+
+            for (int p = 0; p < 2; p++)
             {
-                var star = GameObject.CreatePrimitive(PrimitiveType.Quad);
-                star.name = "MuzzleFlashStar";
-                star.transform.SetParent(transform, false);
-                if (star.TryGetComponent<Collider>(out var c)) Destroy(c);
-                var mat = new Material(Shader.Find("Universal Render Pipeline/Unlit") ?? Shader.Find("Sprites/Default"));
-                mat.color = VanguardPalette.TracerGold * 2.8f;
-                var r = star.GetComponent<Renderer>();
+                var plane = GameObject.CreatePrimitive(PrimitiveType.Quad);
+                plane.name = $"FlashPlane_{p}";
+                plane.transform.SetParent(starRoot.transform, false);
+                plane.transform.localRotation = p == 0 ? Quaternion.identity : Quaternion.Euler(0f, 90f, 0f);
+                if (plane.TryGetComponent<Collider>(out var c)) Destroy(c);
+                var r = plane.GetComponent<Renderer>();
                 r.sharedMaterial = mat;
                 r.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
-                _muzzleFlashMesh = star.transform;
-                _muzzleFlashMesh.gameObject.SetActive(false);
             }
-            else
-            {
-                _muzzleFlashMesh = flashMesh;
-            }
+
+            _muzzleFlashMesh = starRoot.transform;
+            _muzzleFlashMesh.gameObject.SetActive(false);
         }
 
         public void SetActiveWeaponModel(WeaponId weapon)
@@ -181,10 +197,10 @@ namespace VanguardZero.Weapons
             }
             if (_muzzleFlashMesh != null)
             {
-                _muzzleFlashMesh.position = muzzlePos + transform.forward * 0.03f;
+                _muzzleFlashMesh.position = muzzlePos + transform.forward * 0.06f;
                 _muzzleFlashMesh.rotation = Quaternion.LookRotation(transform.forward) * Quaternion.Euler(0f, 0f, UnityEngine.Random.Range(0f, 360f));
-                float s = weapon == WeaponId.M890_TacticalShotgun ? 0.22f : 0.15f;
-                _muzzleFlashMesh.localScale = new Vector3(s, s, s);
+                float s = weapon == WeaponId.M890_TacticalShotgun ? 0.28f : (weapon == WeaponId.M19_TacticalPistol ? 0.16f : 0.22f);
+                _muzzleFlashMesh.localScale = new Vector3(s, s, s * 1.35f);
                 _muzzleFlashMesh.gameObject.SetActive(true);
             }
 
@@ -297,6 +313,13 @@ namespace VanguardZero.Weapons
             {
                 weaponRoots[wIdx].localPosition = finalPos;
                 weaponRoots[wIdx].localRotation = Quaternion.Euler(finalEuler);
+            }
+
+            // Keep gloved first-person arms locked cleanly to the active weapon's pose & recoil!
+            if (_fpArmsRoot != null)
+            {
+                _fpArmsRoot.localPosition = finalPos + new Vector3(0f, -0.008f, 0.01f);
+                _fpArmsRoot.localRotation = Quaternion.Euler(finalEuler);
             }
         }
     }

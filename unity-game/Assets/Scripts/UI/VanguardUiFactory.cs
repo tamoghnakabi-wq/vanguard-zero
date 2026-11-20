@@ -13,6 +13,19 @@ namespace VanguardZero.UI
     public static class VanguardUiFactory
     {
         private static Sprite _solidSprite;
+        private static TMP_FontAsset _cachedSdfFont;
+
+        public static TMP_FontAsset CrispSdfFont
+        {
+            get
+            {
+                if (_cachedSdfFont != null) return _cachedSdfFont;
+                _cachedSdfFont = TMP_Settings.defaultFontAsset;
+                if (_cachedSdfFont == null)
+                    _cachedSdfFont = Resources.Load<TMP_FontAsset>("Fonts & Materials/LiberationSans SDF");
+                return _cachedSdfFont;
+            }
+        }
 
         public static Sprite SolidSprite
         {
@@ -116,17 +129,19 @@ namespace VanguardZero.UI
             Color color,
             TextAlignmentOptions alignment = TextAlignmentOptions.Left,
             FontStyles style = FontStyles.Normal,
-            float characterSpacing = 1.5f)
+            float characterSpacing = 1.0f)
         {
             var go = new GameObject(name, typeof(RectTransform));
             go.transform.SetParent(parent, false);
             var tmp = go.AddComponent<TextMeshProUGUI>();
+            if (CrispSdfFont != null) tmp.font = CrispSdfFont;
             tmp.text = text;
             tmp.fontSize = fontSize;
             tmp.color = color;
             tmp.alignment = alignment;
             tmp.fontStyle = style;
             tmp.characterSpacing = characterSpacing;
+            tmp.extraPadding = true;
             tmp.raycastTarget = false;
             tmp.textWrappingMode = TextWrappingModes.Normal;
             return tmp;

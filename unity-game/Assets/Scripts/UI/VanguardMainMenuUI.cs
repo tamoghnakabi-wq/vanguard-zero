@@ -20,10 +20,10 @@ namespace VanguardZero.UI
     {
         [Header("3D Live Backdrop Orbit")]
         [SerializeField] private Transform backdropCamera;
-        [SerializeField] private Vector3 orbitTarget = new Vector3(0f, 3.8f, 0f);
-        [SerializeField] private float orbitRadius = 18.5f;
-        [SerializeField] private float orbitHeight = 4.2f;
-        [SerializeField] private float orbitDegreesPerSec = 3.2f;
+        [SerializeField] private Vector3 orbitTarget = new Vector3(2.8f, 1.55f, 3.2f);
+        [SerializeField] private float orbitRadius = 8.4f;
+        [SerializeField] private float orbitHeight = 1.95f;
+        [SerializeField] private float orbitDegreesPerSec = 1.8f;
 
         private Canvas _canvas;
         private GameObject _homePanel;
@@ -65,7 +65,7 @@ namespace VanguardZero.UI
         private bool _localReady;
         private TeamId _localPreferredTeam = TeamId.Alpha;
 
-        private float _orbitAngle = 22f;
+        private float _orbitAngle = 38f;
         private bool _busy;
 
         private void Awake()
@@ -78,6 +78,14 @@ namespace VanguardZero.UI
 
             if (backdropCamera == null && Camera.main != null)
                 backdropCamera = Camera.main.transform;
+
+            // Enforce v2.0 cinematic low-angle hero framing (overrides legacy v1 scene serialized values!)
+            // Frames ShowcaseOperator (4.2, 0, 4.6) heroically full-body right-center with Bunker, Radar, Watchtower & 4K Dusk Sky behind!
+            orbitTarget = new Vector3(3.0f, 0f, 3.2f);
+            orbitRadius = 5.8f;
+            orbitHeight = 1.48f;
+            orbitDegreesPerSec = 1.1f;
+            _orbitAngle = 0f;
 
             BuildMenuCanvas();
         }
@@ -149,11 +157,16 @@ namespace VanguardZero.UI
         {
             if (backdropCamera != null)
             {
+                // Dramatic low-angle hero arc around ShowcaseOperator (4.2, 0, 4.6) framing full operator + Radar, Bunkers & 4K Dusk Sky
                 _orbitAngle += orbitDegreesPerSec * Time.unscaledDeltaTime;
-                float rad = _orbitAngle * Mathf.Deg2Rad;
-                Vector3 pos = orbitTarget + new Vector3(Mathf.Cos(rad) * orbitRadius, orbitHeight, Mathf.Sin(rad) * orbitRadius);
+                float swing = 48f + Mathf.Sin(_orbitAngle * 0.25f) * 8f;
+                float rad = swing * Mathf.Deg2Rad;
+                Vector3 pos = new Vector3(
+                    orbitTarget.x + Mathf.Cos(rad) * orbitRadius,
+                    orbitHeight + Mathf.Sin(Time.unscaledTime * 0.45f) * 0.04f,
+                    orbitTarget.z + Mathf.Sin(rad) * orbitRadius);
                 backdropCamera.position = pos;
-                backdropCamera.LookAt(orbitTarget);
+                backdropCamera.LookAt(new Vector3(2.8f, 1.42f, 2.8f));
             }
         }
 

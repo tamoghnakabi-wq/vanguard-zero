@@ -98,6 +98,8 @@ pnpm-debug.log*
 *.tx
 blender-assets/textures/
 blender-assets/renders/
+blender-assets/pbr_scans/
+blender-assets/hdri/
 
 # --- Python / Audio & Asset Pipelines ---
 **/__pycache__/
